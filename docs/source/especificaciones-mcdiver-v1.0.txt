@@ -1,0 +1,780 @@
+ESPECIFICACIONES TÉCNICAS DEL SITIO WEB – MCDIVER
+Documento para Desarrollador | Versión 1.0 | Agosto 2026
+Plataforma: Wix (preferida) o cualquier CMS equivalente
+1. INFORMACIÓN GENERAL DEL PROYECTO
+Nombre del negocio: MCDiver Dominio actual: mcdiver.co (temporal, puede cambiar) Tipo
+de sitio: Sitio web de empresa de viajes de buceo Idiomas: Español (principal) + Inglés
+(toggle visible en header) Mercado objetivo: Buceadores hispanohablantes en USA,
+especialmente Miami, Florida Referencia visual: https://www.destinosentreazules.com
+Dispositivos: Mobile-first, responsive en desktop y tablet
+
+
+2. IDENTIDAD VISUAL
+Paleta de colores:
+
+
+código
+DESCARGAR
+COPIAR
+Azul profundo: #1B3A6B → color dominante, fondos, navbar
+Turquesa:      #00B4CC → color de acento, botones CTA, íconos
+Blanco:       #FFFFFF → textos sobre fondos oscuros, espacios
+Dorado arena: #C9A96E → acento cálido, detalles, separadores
+Negro suave: #1A1A2E → overlay del hero, fondos alternativos
+Tipografía:
+
+
+código
+DESCARGAR
+COPIAR
+Títulos: Montserrat Bold / ExtraBold (Google Fonts)
+Subtít.: Montserrat SemiBold
+Cuerpo: Open Sans Regular / Light
+Botones: Montserrat SemiBold, todo en mayúsculas
+Estilo fotográfico:
+
+
+Imágenes subacuáticas de alta calidad con luz natural del Pacífico
+Fauna marina de Coiba: tiburones ballena, mantarrayas, delfines, bancos de peces
+Buceadores en acción, siluetas contra la luz del sol desde abajo
+Atardeceres desde Pixvae, paisajes del Pacífico panameño
+Stock recomendado: Unsplash, Pexels (buscar: "Coiba diving", "whale shark Panama",
+"scuba diving Pacific")
+Las fotos reales de Jhon se integrarán después del lanzamiento
+Estilo general:
+
+
+Simple, limpio, impactante. Mucho espacio en blanco.
+Las imágenes son las protagonistas, el texto es conciso
+Sensación de exclusividad y aventura seria, no turismo masivo
+Inspirado en destinosentreazules.com: secciones bien delimitadas, scroll vertical fluido
+3. ESTRUCTURA DEL SITIO (MAPA DE PÁGINAS)
+código
+DESCARGAR
+COPIAR
+/ (Homepage)
+/nuestros-viajes
+/isla-coiba
+/por-que-pixvae
+/nuestro-equipo
+/galeria
+/faq
+/blog
+/blog/[slug]
+/contacto
+Idiomas: Cada URL se duplica en inglés:
+
+
+código
+DESCARGAR
+COPIAR
+/en/ (Homepage EN)
+/en/our-trips
+/en/coiba-island
+/en/why-pixvae
+/en/our-team
+/en/gallery
+/en/faq
+/en/blog
+/en/contact
+Toggle de idioma: visible en el header, esquina superior derecha. ES | EN.
+
+
+4. NAVBAR (HEADER)
+Posición: Fija en la parte superior, siempre visible al hacer scroll Fondo: Transparente
+sobre el hero → azul profundo #1B3A6B con scroll Transición: Suave al hacer scroll (0.3s)
+
+
+Contenido del header (izquierda a derecha):
+
+
+Logo MCDiver (texto estilizado o imagen, blanco)
+Menú: Inicio | Nuestros Viajes | Isla Coiba | Por qué Pixvae | Galería | Nosotros | FAQ | Blog
+CTA: botón "Reservar" en turquesa #00B4CC
+Toggle ES | EN
+Mobile: Hamburger menu. Logo centrado. Botón WhatsApp visible.
+
+
+5. HOMEPAGE – SECCIÓN POR SECCIÓN
+5.1 HERO (Sección 1)
+Tipo: Full-screen, 100vh Fondo: Video loop subacuático (tiburón ballena o banco de peces
+en Coiba). En mobile: foto estática de alta calidad (el video afecta rendimiento en móvil)
+Overlay: Negro semitransparente, opacity 0.45, para que el texto sea legible Contenido
+centrado:
+
+
+código
+DESCARGAR
+COPIAR
+TAGLINE PRINCIPAL (Montserrat ExtraBold, 52px desktop / 32px mobile, blanco):
+"El Pacífico más prístino del mundo."
+
+
+SUBTÍTULO (Montserrat SemiBold, 28px desktop / 20px mobile, turquesa #00B4CC):
+"A 20 minutos de Pixvae."
+
+
+DESCRIPCIÓN (Open Sans Light, 18px, blanco, max-width 600px):
+"Viajes de buceo exclusivos al Parque Nacional Coiba, Panamá.
+Grupos pequeños. Instructores PADI con más de 25 años de experiencia."
+
+
+BOTONES (dos, en fila centrada, gap 16px):
+[Ver fechas disponibles] → fondo turquesa, texto blanco, border-radius 4px
+[Escríbenos por WhatsApp] → borde blanco, texto blanco, fondo transparente
+Scroll indicator: Flecha animada hacia abajo, blanca, en la parte inferior del hero
+
+
+5.2 BARRA DE CONFIANZA (Sección 2)
+Fondo: #1B3A6B (azul profundo) Layout: 4 íconos en fila horizontal (en mobile: 2x2) Cada
+ícono:
+
+
+Ícono SVG o FontAwesome en turquesa
+Número/dato en blanco, Montserrat Bold, 24px
+Descripción en Open Sans, 14px, blanco 80% opacity
+Contenido:
+
+
+código
+DESCARGAR
+COPIAR
+
+      +25 años           Patrimonio         Grupos          Instructores
+    de experiencia   UNESCO Coiba           máx. 12 personas PADI certificados
+5.3 PRÓXIMAS SALIDAS / CALENDARIO (Sección 3)
+Esta es la sección más importante para la conversión.
+
+
+Fondo: Blanco Título (centrado): "Próximas Salidas a Isla Coiba" (Montserrat Bold, 40px,
+azul profundo) Subtítulo: "Grupos de máximo 12 personas. Reserva con 50% de anticipo."
+
+
+Layout: 2 cards en fila (en mobile: columna)
+
+
+Estructura de cada card:
+
+
+código
+DESCARGAR
+COPIAR
+┌─────────────────────────────────────┐
+│ [FOTO del plan, aspect ratio 16:9] │
+│ Badge: "5 días" o "7 días"      │
+├─────────────────────────────────────┤
+│ PLAN COIBA ESENCIAL                  │ ← Montserrat Bold, 24px, azul
+│ Octubre 15 – 19, 2026          │ ← Montserrat SemiBold, 16px, turquesa
+│                    │
+│ 8 inmersiones incluidas             │ ← ícono + texto, Open Sans
+│ Salida desde Pixvae           │
+│ Grupos máx. 12 personas            │
+│ Instructores PADI certificados      │
+│                  │
+│ Desde                 │
+│ $1,650 USD por persona            │ ← precio: Montserrat ExtraBold, 36px
+│                  │
+│ ████ ████ ░░░░ (barra de cupos) │ ← "8 de 12 cupos disponibles"
+│                  │
+│ [RESERVAR MI LUGAR]               │ ← botón turquesa, ancho completo
+│ [Ver itinerario completo ↓]       │ ← link texto, azul
+└─────────────────────────────────────┘
+Card 1 — Plan Coiba Esencial:
+
+
+Fechas: Octubre 15–19, 2026
+Duración: 5 días / 4 noches
+Inmersiones: 8
+Precio: $1,650 USD por persona
+Cupos: 12 máximo
+Badge color: turquesa
+Card 2 — Plan Coiba Completo:
+
+
+Fechas: Noviembre 5–11, 2026
+Duración: 7 días / 6 noches
+Inmersiones: 14
+Precio: $2,450 USD por persona
+Cupos: 12 máximo
+Incluye seguro de buceo
+Badge color: dorado arena #C9A96E
+Itinerario desplegable (acordeón bajo cada card):
+
+
+Plan Coiba Esencial (5 días):
+
+
+código
+DESCARGAR
+COPIAR
+Día 1: Llegada a Ciudad de Panamá. Traslado a Pixvae (aprox. 4-5 hrs).
+   Bienvenida y briefing con el equipo. Alojamiento en Pixvae.
+Día 2: Primera jornada de buceo. 3 inmersiones en el PNN Coiba.
+   20-30 minutos en lancha desde Pixvae. Almuerzo a bordo.
+Día 3: Segunda jornada de buceo. 3 inmersiones. Sitios exclusivos.
+   Posibilidad de avistamiento de tiburón ballena (temporada).
+Día 4: Tercera jornada. 2 inmersiones matutinas. Tarde libre en Pixvae.
+   Traslado de regreso a Ciudad de Panamá. 1 noche en hotel.
+Día 5: Desayuno. Vuelo de regreso a ciudad de origen.
+Plan Coiba Completo (7 días):
+
+
+código
+DESCARGAR
+COPIAR
+Día 1: Llegada a Ciudad de Panamá. Traslado a Bahía Honda/Pixvae.
+   Bienvenida, briefing y cena. Alojamiento incluido.
+Día 2: Primera jornada. 3 inmersiones en el PNN Coiba.
+Día 3: Segunda jornada. 3 inmersiones. Sitios de pared y arrecife.
+Día 4: Tercera jornada. 2 inmersiones AM + buceo nocturno opcional ($60 USD).
+Día 5: Cuarta jornada. 3 inmersiones. Roca Partida y sitios profundos.
+Día 6: Quinta jornada. 3 inmersiones matutinas. Tarde libre. Cena de cierre.
+Día 7: Traslado a Ciudad de Panamá. Vuelo de regreso.
+Qué incluye / No incluye (tabla simple bajo el itinerario):
+
+
+Plan Esencial — Incluye:
+
+
+Transporte Ciudad de Panamá ↔ Pixvae
+3 noches alojamiento en Pixvae + 1 noche en Ciudad de Panamá
+8 inmersiones en el PNN Coiba
+Entrada al Parque Nacional Coiba
+Chaleco BCD y regulador
+Instructor/Divemaster certificado PADI
+Todas las comidas durante los días de buceo
+Plan Esencial — No incluye:
+
+
+Tiquete aéreo
+Bebidas personales
+Buceo nocturno
+Traje de neopreno (alquiler disponible)
+Gastos personales extras
+Plan Completo — Incluye: Todo lo anterior más:
+
+
+14 inmersiones
+Seguro de buceo
+Alimentación completa los 7 días
+Souvenir MCDiver
+Alquiler completo de equipos
+Plan Completo — No incluye:
+Tiquete aéreo
+Bebidas alcohólicas
+Buceo nocturno ($60 USD extra)
+Gastos personales
+5.4 ¿POR QUÉ COIBA? (Sección 4)
+Fondo: Imagen oscura de vida marina con overlay azul profundo 70% Layout: 2 columnas.
+Izquierda: texto. Derecha: foto impactante.
+
+
+Texto izquierda:
+
+
+código
+DESCARGAR
+COPIAR
+Título: "El Galápagos del Pacífico" (Montserrat Bold, 38px, blanco)
+
+
+Párrafo (Open Sans, 17px, blanco 90%):
+"El Parque Nacional Coiba es Patrimonio de la Humanidad UNESCO y uno
+de los últimos reductos vírgenes del Pacífico. Sus aguas albergan más
+de 760 especies de peces, tiburones ballena, mantarrayas gigantes,
+delfines, tortugas y ballenas jorobadas. Una biodiversidad que pocas
+personas en el mundo han tenido el privilegio de ver bajo el agua."
+
+
+Estadísticas en fila (3 números grandes en turquesa):
+760+       30m+       UNESCO
+especies    visibilidad   Patrimonio
+de peces    promedio      de la Humanidad
+5.5 LA VENTAJA PIXVAE (Sección 5)
+Fondo: Blanco o gris muy claro #F8F9FA Título (centrado): "Más tiempo bajo el agua.
+Menos tiempo en lancha." (Montserrat Bold, 36px, azul)
+
+
+Layout: Infografía comparativa centrada
+
+
+código
+DESCARGAR
+COPIAR
+DESDE PIXVAE       vs.       DESDE SANTA CATALINA
+(MCDiver)            (otros operadores)
+
+
+
+
+20-30 min                 60-90 min
+a los sitios             a los sitios
+de buceo                 de buceo
+
+
+    Más inmersiones                 Menos tiempo
+
+    Menos cansancio                     Mareo por trayecto
+
+    Más energía bajo el agua              Más tiempo en lancha
+Párrafo complementario (Open Sans, 17px, gris oscuro): "Pixvae y Bahía Honda son los
+puntos de acceso más cercanos al Parque Nacional Coiba. Mientras otros operadores
+salen desde Santa Catalina con más de una hora de travesía, nuestro equipo sale desde
+Pixvae. La diferencia es simple: tú buceas más y viajas menos."
+
+
+5.6 NUESTRO EQUIPO (Sección 6)
+Fondo: #1B3A6B (azul profundo) Título (centrado): "Los mejores instructores del Pacífico
+panameño" (Montserrat Bold, 38px, blanco)
+
+
+Layout: 3 cards en fila (mobile: columna)
+Card 1 — Francisco "Pacho" Martínez:
+
+
+código
+DESCARGAR
+COPIAR
+[Foto circular, 180px diámetro, borde turquesa 3px]
+Francisco "Pacho" Martínez
+Instructor PADI | +25 años de experiencia
+─────────────────────────────────────
+Fundador de La Tienda de Buceo El Rodadero
+en Santa Marta, Colombia. Operador en Santa
+Catalina, Panamá por más de una década. Hoy
+lidera las operaciones desde Pixvae, el punto
+más cercano a los mejores sitios de buceo del
+Parque Nacional Coiba.
+[Badge: PADI Instructor #XXXXXX]
+Card 2 — Sebastián Martínez:
+
+
+código
+DESCARGAR
+COPIAR
+[Foto circular, 180px diámetro, borde turquesa 3px]
+Sebastián Martínez
+Instructor PADI | Guía de Inmersiones
+─────────────────────────────────────
+Formado en el buceo desde niño junto a su padre.
+Especialista en avistamientos de tiburón ballena
+y mantarrayas en Coiba. Su conocimiento de los
+sitios de buceo del Pacífico panameño es único
+e irrepetible.
+[Badge: PADI Instructor]
+Card 3 — Jhon Torres:
+
+
+código
+DESCARGAR
+COPIAR
+[Foto circular, 180px diámetro, borde dorado #C9A96E]
+Jhon Torres
+Rescue Diver | Organizador & Miami Contact
+─────────────────────────────────────
+"Soy buzo como tú. Conozco Coiba de primera
+mano y quedé enamorado del lugar. Me asocié
+con el mejor equipo de instructores que conozco
+para hacer fácil lo que antes era difícil de
+organizar desde USA. Mi trabajo es que tu
+viaje sea perfecto desde que salgas de Miami."
+5.7 GALERÍA PREVIEW (Sección 7)
+Fondo: Blanco Título: "Coiba en imágenes" (centrado) Layout: Grid masonry de 6 fotos (3
+columnas desktop, 2 mobile) Hover: Overlay oscuro con ícono de lupa, zoom suave CTA:
+Botón "Ver galería completa" → /galeria
+
+
+5.8 TESTIMONIOS (Sección 8)
+Fondo: Gris muy claro #F8F9FA Título: "Lo que dicen quienes han buceado con nuestro
+equipo" Nota para el desarrollador: Al lanzar, colocar 3 testimonios de clientes anteriores
+de Pacho y Sebastián de sus años en El Rodadero y Santa Catalina.
+
+
+Estructura de cada testimonio:
+código
+DESCARGAR
+COPIAR
+"[Texto del testimonio en cursiva, máx 3 líneas]"
+[Foto circular pequeña 60px] Nombre Apellido — Ciudad, País
+
+
+Layout: Carrusel automático (3 testimonios visibles en desktop, 1 en mobile)
+
+
+5.9 FAQ PREVIEW (Sección 9)
+Fondo: Blanco Título: "Preguntas frecuentes" Layout: Acordeón, mostrar solo 4 preguntas
+en homepage CTA: "Ver todas las preguntas" → /faq
+
+
+Las 4 preguntas del preview:
+
+
+¿Qué nivel de buceo necesito para ir a Coiba?
+¿Qué pasa si el grupo no se llena?
+¿Cuánto tiempo hay desde Pixvae a los sitios de buceo?
+¿Cómo hago la reserva y cuándo pago?
+5.10 CTA FINAL (Sección 10)
+Fondo: #1B3A6B con imagen subacuática de fondo, overlay 60% Contenido centrado:
+
+
+código
+DESCARGAR
+COPIAR
+"¿Listo para bucear en Coiba?"
+[Ver fechas disponibles] [Escríbenos por WhatsApp]
+5.11 FOOTER
+Fondo: #0D1F3C (azul más oscuro) Layout: 4 columnas desktop, 2 columnas mobile
+código
+DESCARGAR
+COPIAR
+Col 1: Logo MCDiver + tagline corto + redes sociales (Instagram, Facebook, TikTok,
+YouTube)
+Col 2: Navegación rápida (todas las páginas)
+Col 3: Contacto (WhatsApp, email, Miami FL USA)
+Col 4: Legal (Política de privacidad, Términos, © 2026 MCDiver)
+Certificaciones: Logos PADI y SSI en el footer (PNG transparente sobre fondo oscuro)
+Toggle ES | EN visible en el footer también
+
+
+6. BOTÓN WHATSAPP FLOTANTE
+Posición: Fijo en todas las páginas, esquina inferior derecha, 24px desde el borde Tamaño:
+56px × 56px Fondo: #25D366 (verde WhatsApp) Ícono: Logo WhatsApp SVG en blanco
+Sombra: box-shadow sutil para elevación Link:
+https://wa.me/13059043587?text=Hola%20Jhon%2C%20me%20interesa%20un%20viaje
+%20de%20buceo%20a%20Coiba%20con%20MCDiver.%20%C2%BFMe%20puedes%20d
+ar%20m%C3%A1s%20informaci%C3%B3n%3F Mobile: Aumentar a 60px para facilitar el
+toque con el pulgar Animación: Pulso suave cada 4 segundos para llamar la atención
+
+
+7. FORMULARIO DE CONTACTO / RESERVA
+Aparece en: Página /contacto, página /nuestros-viajes y como modal al hacer clic en
+"Reservar mi lugar"
+
+
+Campos:
+
+
+código
+DESCARGAR
+COPIAR
+Nombre completo *
+Email *
+WhatsApp (con código de país) *
+Plan de interés: [Dropdown: Coiba Esencial Oct 15-19 | Coiba Completo Nov 5-11]
+Nivel de buceo: [Dropdown: Open Water | Advanced | Rescue Diver | Divemaster |
+Instructor]
+Número de personas
+Mensaje (textarea, opcional)
+[ENVIAR CONSULTA] → botón turquesa, ancho completo
+Acción del formulario:
+
+
+Envía email a jjtorresv@gmail.com con todos los datos
+Mensaje de confirmación en pantalla: "¡Gracias! Te contactamos en menos de 24 horas por
+WhatsApp."
+Opcional: dispara mensaje automático de WhatsApp al número del cliente
+8. PÁGINAS INTERNAS
+8.1 /nuestros-viajes
+Hero: Full-width, altura 60vh, foto de buceadores en Coiba, overlay azul, título "Nuestros
+Viajes a Isla Coiba"
+
+
+Contenido:
+
+
+Intro: "Cada viaje a Coiba es una experiencia única. Grupos de máximo 12 personas,
+instructores PADI con décadas de experiencia, y la ventaja de salir desde Pixvae: a solo 20-
+30 minutos de los mejores sitios de buceo del Pacífico."
+Las 2 cards completas (igual que homepage pero expandidas con itinerario completo
+visible)
+Formulario de reserva completo
+Sección "¿Tienes dudas? Escríbenos" con link a WhatsApp
+8.2 /isla-coiba
+Hero: Full-width foto de Coiba desde el aire o bajo el agua, título "Isla Coiba – Patrimonio
+de la Humanidad"
+
+
+Contenido (secciones):
+El parque: historia y conservación (Coiba fue penal hasta 2004, hoy es reserva natural)
+Biodiversidad: especies de peces, tiburones, mamíferos marinos, tortugas
+Los mejores sitios de buceo: Roca Partida, El Bajo Hannibal, Granito de Oro, Las Lajas (con
+foto de cada uno)
+Mejor época para visitar: mapa visual por meses (dic-mayo visibilidad, jun-nov tiburones
+ballena)
+Mapa de ubicación del parque en el Pacífico panameño
+CTA hacia nuestros viajes
+8.3 /por-que-pixvae
+Hero: Foto de Pixvae o Bahía Honda desde el mar, título "Por qué Salimos desde Pixvae"
+
+
+Contenido:
+
+
+Mapa interactivo o imagen de mapa con las dos rutas (Pixvae y Santa Catalina hacia Coiba)
+Comparativa visual en tabla:
+Desde Pixvae (MCDiver)      Desde Santa Catalina
+Tiempo al sitio de buceo    20-30 minutos       60-90 minutos
+Inmersiones posibles por día      3-4     2-3
+Desgaste físico       Mínimo      Alto
+Costo del combustible       Menor Mayor
+Acceso a sitios exclusivos Sí     Limitado
+Fotos de Pixvae y Bahía Honda (pueblo, muelle, lancha del equipo)
+Texto sobre la comunidad local
+8.4 /nuestro-equipo
+Hero: Foto grupal del equipo en Pixvae o en el agua, título "Tu Equipo en Coiba"
+
+
+Contenido:
+Las 3 cards del equipo (expandidas con más info que en homepage)
+Sección "La historia detrás de MCDiver": texto de Jhon en primera persona contando por
+qué creó MCDiver
+Fotos adicionales del equipo
+Certificaciones PADI visibles (imagen de los certificados)
+CTA hacia los viajes
+8.5 /galeria
+Hero: Mosaico de fotos como hero (sin texto superpuesto, que las fotos hablen)
+
+
+Contenido:
+
+
+Filtros por categoría: Fauna Marina | Paisajes | Buceo en Acción | Pixvae
+Grid masonry de todas las fotos disponibles
+Lightbox al hacer clic (imagen grande con navegación prev/next)
+Sección de videos: 2-3 embeds de YouTube (no listados)
+CTA al final: "¿Quieres ver esto en persona?" → botón hacia viajes
+8.6 /faq
+Hero: Fondo azul profundo, título "Preguntas Frecuentes", subtítulo "Todo lo que necesitas
+saber antes de bucear en Coiba"
+
+
+Las 15 preguntas (acordeón):
+
+
+código
+DESCARGAR
+COPIAR
+1. ¿Qué nivel de buceo necesito para ir a Coiba?
+ Mínimo Open Water Diver (certificación básica). El plan de 7 días
+ tiene algunas inmersiones que recomiendan Advanced Open Water.
+2. ¿Qué pasa si el grupo no se llena?
+ Si el viaje no alcanza el mínimo de 10 personas, te devolvemos
+ el 100% de tu anticipo. Sin complicaciones.
+
+
+3. ¿Cuánto tiempo hay desde Pixvae a los sitios de buceo?
+ Entre 20 y 30 minutos en lancha rápida. Una de las ventajas
+ principales de salir desde Pixvae vs. Santa Catalina (60-90 min).
+
+
+4. ¿Cómo hago la reserva y cuándo pago?
+ Llenas el formulario o nos escribes por WhatsApp. Pagas el 50%
+ de anticipo para confirmar tu cupo, y el 50% restante 15 días
+ antes del viaje.
+
+
+5. ¿Quiénes son los instructores? ¿Están certificados PADI?
+ Sí. Francisco "Pacho" Martínez y Sebastián Martínez, instructores
+ PADI con más de 25 años de experiencia. Fundadores de La Tienda
+ de Buceo El Rodadero en Santa Marta y operadores en Santa Catalina.
+
+
+6. ¿Es seguro bucear en Coiba?
+ Completamente. El PNN Coiba tiene operaciones de buceo reguladas.
+ Nuestros instructores hacen briefing completo antes de cada inmersión
+ y siempre hay un divemaster en el agua. El plan de 7 días incluye
+ seguro de buceo.
+
+
+7. ¿Qué animales voy a ver?
+ Coiba es uno de los lugares con mayor biodiversidad del planeta:
+ tiburones ballena, mantarrayas gigantes, tiburones martillo,
+ delfines, tortugas, bancos de miles de peces, morenas, peces
+ loro y mucho más. Cada inmersión es diferente.
+
+
+8. ¿Cuándo es la mejor época para visitar?
+ Diciembre a mayo: mejor visibilidad (hasta 30m), aguas más calmadas.
+ Junio a noviembre: temporada de tiburones ballena y ballenas jorobadas,
+ aunque puede haber lluvia. Todo el año hay buceo excepcional.
+
+
+9. ¿El precio incluye el tiquete aéreo?
+ No. El precio incluye todo desde Ciudad de Panamá. El tiquete aéreo
+ lo compras por tu cuenta. Miami a Ciudad de Panamá hay vuelos directos
+ desde $200-350 USD en Copa, American y United.
+
+
+10. ¿Qué equipo debo llevar?
+ Traje de buceo (agua entre 27-29°C, 3mm suficiente), computadora
+ de buceo, máscara y aletas propias si las tienes. BCD y regulador
+ están incluidos en ambos planes.
+
+
+11. ¿Puedo ir si es mi primer viaje de buceo?
+ Sí, siempre que tengas certificación Open Water. Si recién te
+ certificaste, el plan de 5 días es ideal para empezar.
+
+
+12. ¿Hay cobertura de celular en Pixvae?
+ Señal limitada. Es parte de la experiencia de desconectarse.
+ Hay WiFi en el alojamiento para estar en contacto con la familia.
+
+
+13. ¿Qué pasa si el clima está malo?
+ El Parque Nacional Coiba tiene sitios protegidos aptos para
+ cualquier condición. Nuestros instructores deciden el sitio
+  según las condiciones del día para garantizar tu seguridad.
+
+
+14. ¿Puedo cancelar mi reserva?
+  Con más de 30 días de anticipación: devolución del 80% del anticipo.
+  Con menos de 15 días: el anticipo no es reembolsable. Cambios de
+  fecha sujetos a disponibilidad sin costo adicional.
+
+
+15. ¿Cómo llego a Pixvae desde Miami?
+  Vuelo Miami → Ciudad de Panamá (3.5 hrs). Nosotros coordinamos
+  el traslado terrestre Ciudad de Panamá → Pixvae (aprox. 4-5 hrs)
+  incluido en el precio del plan.
+8.7 /blog
+Layout: Grid de artículos, 3 columnas desktop, 1 columna mobile Cada card: Foto
+thumbnail + categoría + título + extracto 2 líneas + fecha + "Leer más"
+
+
+Artículos iniciales (en borrador, listos para publicar):
+
+
+Artículo 1:
+
+
+Título: "Por qué Pixvae es el mejor punto de partida para bucear en Coiba"
+Categoría: Destinos
+Contenido: Ventaja de los 20-30 min, comparativa con Santa Catalina, biodiversidad de los
+sitios cercanos, datos del PNN Coiba como UNESCO, llamado a la acción hacia los
+planes.
+Artículo 2:
+
+
+Título: "Todo lo que necesitas saber para bucear en el Parque Nacional Coiba"
+Categoría: Guías
+Contenido: Nivel requerido, mejor época, qué equipo llevar, cómo llegar desde Miami,
+fauna esperada, consejos de seguridad, logística del viaje.
+8.8 /contacto
+Hero: Altura 40vh, fondo azul, título "Hablemos de tu próximo viaje"
+
+
+Layout: 2 columnas
+
+
+Izquierda: Formulario completo
+Derecha: Información de contacto
+código
+DESCARGAR
+COPIAR
+Derecha:
+
+   WhatsApp: +1 (305) 904-3587
+ [Botón: Escribir por WhatsApp ahora]
+
+
+   Email: jjtorresv@gmail.com
+
+
+   Miami, FL, USA
+ Operaciones: Pixvae, Panamá
+
+
+Horario de atención:
+Lunes a Viernes: 9am - 7pm (EST)
+Sábados: 10am - 4pm (EST)
+
+
+Redes sociales: [íconos IG, FB, TikTok, YouTube]
+9. FUNCIONALIDADES TÉCNICAS REQUERIDAS
+Sistema bilingüe:
+
+
+Toggle ES/EN en header y footer
+URLs separadas por idioma (ver estructura sección 3)
+Todos los textos traducidos al inglés de forma natural
+SEO básico:
+
+
+Meta title único por página (max 60 caracteres)
+Meta description única por página (max 160 caracteres)
+Alt text en todas las imágenes
+Sitemap XML
+robots.txt configurado
+Google Analytics 4 instalado
+Meta Pixel de Facebook instalado
+Meta titles sugeridos:
+
+
+código
+DESCARGAR
+COPIAR
+Homepage:         MCDiver | Buceo Exclusivo en el Parque Nacional Coiba, Panamá
+/nuestros-viajes: Planes de Buceo en Coiba | MCDiver | Grupos Pequeños
+/isla-coiba:    Isla Coiba: Buceo en el Galápagos del Pacífico | MCDiver
+/por-que-pixvae: Por qué Pixvae es el Mejor Punto para Bucear en Coiba
+/nuestro-equipo: Nuestro Equipo de Instructores PADI | MCDiver Coiba
+/galeria:      Galería de Fotos y Videos | Buceo en Coiba | MCDiver
+/faq:       Preguntas Frecuentes sobre Buceo en Coiba | MCDiver
+/contacto:      Contacto y Reservas | MCDiver Buceo en Coiba
+Rendimiento:
+
+
+Imágenes en formato WebP, max 300KB por imagen
+Video hero: máx 15MB, loop sin audio, o embed de YouTube
+PageSpeed score objetivo: >80 mobile, >90 desktop
+Lazy loading en imágenes del blog y galería
+Formulario:
+
+
+Validación de campos requeridos en frontend
+Envío a jjtorresv@gmail.com
+Mensaje de confirmación en pantalla
+Link de WhatsApp pre-llenado como alternativa
+Barra de cupos:
+
+
+Campo editable manualmente por Jhon (sin código)
+Muestra "X de 12 cupos disponibles" con barra de progreso visual
+Cuando llegue a 0: cambiar botón a "Lista de espera"
+10. NOTAS PARA EL DESARROLLADOR
+Las fotos reales de Jhon en Coiba se integrarán después del lanzamiento. Por ahora usar
+stock de Unsplash/Pexels (buscar: "Coiba diving", "scuba diving Pacific", "whale shark",
+"manta ray Pacific").
+
+
+Las fotos y bios de Pacho y Sebastián están pendientes. El desarrollador puede dejar los
+espacios con placeholders que Jhon reemplaza directamente, o usar fotos genéricas de
+instructores de buceo.
+
+
+Los testimonios iniciales vienen de clientes anteriores de Pacho en Santa Marta. Jhon los
+conseguirá y los entregará como texto + foto. El desarrollador deja el módulo de
+testimonios listo para insertar.
+
+
+El número de certificación PADI de Pacho y Sebastián está pendiente. Dejar el campo
+vacío o con [PADI #XXXXX] como placeholder.
+
+
+El dominio definitivo está por decidirse. El sitio se construye con mcdiver.co o en el
+subdominio de Wix temporalmente. La estructura de URLs no cambia al conectar el
+dominio final.
+El calendario de cupos es manual por ahora. No requiere integración con sistema de pagos
+en este lanzamiento. El objetivo es capturar el lead vía formulario o WhatsApp, y Jhon
+gestiona el pago por transferencia/Zelle/PayPal manualmente.
+
+
+Sistema de pagos (fase 2): Integración con Stripe o PayPal para cobro del anticipo
+directamente en el sitio. No requerido para el lanzamiento inicial.
+
+
+Documento de Especificaciones MCDiver | Versión 1.0 | Agosto 2026 Desarrollador:
+compartir cualquier duda con Jhon Torres vía jjtorresv@gmail.com o WhatsApp
++13059043587
+
