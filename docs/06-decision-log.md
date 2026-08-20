@@ -83,3 +83,25 @@ promedio" mientras su propia FAQ #8 dice "hasta 30m" y solo de diciembre a mayo.
 Las dos frases van publicadas en el mismo sitio. Regla general: toda cifra en
 copy de cara al cliente necesita fuente o se reemplaza por un dato verificable.
 Aplica también a los números PADI y a los testimonios (D4).
+**Catálogo completo de las cinco contradicciones:** `08-content-integrity.md`.
+
+### D13 — Un solo tamaño para los títulos de sección
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** el PDF los especifica a 40px, 38px, 38px y 36px. Tres tamaños para
+un mismo nivel jerárquico; a esas diferencias no se percibe jerarquía, se
+percibe descuido. Jerarquía por espacio o por color de fondo, no por 2px.
+
+### D14 — Dos tokens de ritmo vertical para todo el sitio
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** en 779 líneas el PDF da **un** valor de espaciado (`gap: 16px` entre
+dos botones) mientras declara "mucho espacio en blanco" como el centro de la
+estética. Sin especificar significa inventado en cada una de las 19 secciones.
+`--section-y` y `--section-y-tight`, sin tercera opción.
+
+### D15 — Se elimina "Completamente" de la respuesta sobre seguridad
+**Decidió:** el equipo. **Se le informa a Jhon, no se le pregunta.**
+**Razón:** afirmación de seguridad absoluta sobre buceo recreativo, por escrito,
+en el sitio que vendió el viaje. El resto de la respuesta (operaciones
+reguladas, briefing, divemaster en el agua) es cierto y suficiente. No existe
+versión defendible de la alternativa, así que no es una decisión del fundador.
+**Ver:** `08-content-integrity.md` CI-4.

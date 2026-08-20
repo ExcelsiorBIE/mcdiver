@@ -109,5 +109,8 @@ El PDF lo declara explícitamente — no es deuda nuestra, es insumo que falta:
 - Fotos reales de Coiba (mientras tanto: stock Unsplash/Pexels).
 - Fotos y bios definitivas de Pacho y Sebastián.
 - **Números de certificación PADI** de ambos (placeholder `PADI #XXXXX`).
+- **Años de experiencia reales de Pacho y de Sebastián, por separado.** El PDF
+  atribuye "+25 años" a los dos en la FAQ #5 pero solo a Pacho en su ficha.
+  Ver `08-content-integrity.md` CI-3.
 - **Testimonios reales** de clientes anteriores de Pacho (texto + foto).
   ⚠️ Ver `05-open-questions.md` Q1 — hay testimonios inventados en Wix hoy.

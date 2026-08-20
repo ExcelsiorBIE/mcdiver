@@ -51,18 +51,73 @@ paleta y es decisión suya. Ver `05-open-questions.md` Q7.
 
 ## 3. Escala tipográfica — el hueco de la tablet
 
-El PDF fija px exactos con un salto de **52px → 32px** y nada en medio. La
+El PDF fija px exactos en **dos** viewports (52/32, 28/20) y nada en medio. La
 tablet cae justo en ese hueco.
 
-Solución: `clamp()` fluido entre los dos extremos que el PDF ya declara.
+Solución: `clamp()` fluido entre los dos extremos que el PDF ya declara. No
+sobrescribe nada — da 52px exactos en desktop y 32px exactos en mobile, e
+interpola en vez de saltar.
 
 ```css
---fs-hero: clamp(2rem, 5vw + 0.5rem, 3.25rem);   /* 32px ↔ 52px */
---fs-sub:  clamp(1.25rem, 2vw + 0.5rem, 1.75rem); /* 20px ↔ 28px */
+--fs-display: clamp(2rem,    1.2rem  + 2.8vw,  3.25rem);  /* 32 → 52  tagline hero */
+--fs-lead:    clamp(1.25rem, 1.05rem + 0.9vw,  1.75rem);  /* 20 → 28  subtítulo hero */
+--fs-h2:      clamp(1.75rem, 1.3rem  + 1.9vw,  2.5rem);   /* 28 → 40  títulos de sección */
+--fs-h3:      clamp(1.25rem, 1.15rem + 0.5vw,  1.5rem);   /* 20 → 24  títulos de card */
+--fs-price:   clamp(1.75rem, 1.4rem  + 1.5vw,  2.25rem);  /* 28 → 36  precio */
+--fs-body:    clamp(1rem,    0.95rem + 0.25vw, 1.125rem); /* 16 → 18  cuerpo */
+--fs-small:   0.875rem;                                    /* 14      pies, badges */
 ```
 
-Da exactamente 32px en mobile y 52px en desktop — **honra los números del PDF
-en ambos extremos** en lugar de contradecirlos — y llena el intermedio.
+### 3.1 Una sola medida para los títulos de sección
+
+El PDF especifica los títulos de sección en **tres tamaños distintos**:
+
+| Sección | Tamaño |
+| --- | --- |
+| §5.3 Próximas Salidas | 40px |
+| §5.4 Por qué Coiba | 38px |
+| §5.6 Nuestro Equipo | 38px |
+| §5.5 Ventaja Pixvae | 36px |
+
+40, 38 y 36 hacen el mismo trabajo. A esas diferencias nadie percibe jerarquía:
+38 junto a 40 no se lee como un nivel distinto, se lee como descuido.
+
+**Decisión:** un solo `--fs-h2` para todos. Si una sección tiene que destacar
+sobre otra, se hace con **espacio** o con **color de fondo**, no con 2px.
+
+## 4. Ritmo vertical — lo que el PDF nombra pero no numera
+
+Hallazgo verificado: en las 779 líneas del PDF hay **un solo valor de
+espaciado**, `gap: 16px` entre los dos botones del hero. Ni un padding, ni un
+margin, ni una separación entre secciones. Todo lo demás en px son tamaños de
+fuente, dimensiones de foto o el `max-width: 600px` de un párrafo.
+
+Y sin embargo §2 define la estética como *"Simple, limpio, impactante. **Mucho
+espacio en blanco**"* y *"Las imágenes son las protagonistas"*.
+
+El espacio en blanco es el corazón declarado del diseño y es la única propiedad
+sin número. Con 11 secciones de home y 9 páginas interiores, "sin especificar"
+significa **inventado 19 veces**, que es exactamente como se termina con un
+py-16 aquí, un py-20 allá y ningún ritmo.
+
+```css
+--section-y:       clamp(4rem,   2.5rem + 6vw, 8rem);  /*  64 → 128  separación estándar */
+--section-y-tight: clamp(2.5rem, 2rem   + 2vw, 4rem);  /*  40 →  64  bandas acopladas */
+--stack-lg: 3rem;     /* entre bloques dentro de una sección */
+--stack-md: 1.5rem;   /* entre párrafos */
+--stack-sm: 0.75rem;  /* entre etiqueta y valor */
+--measure:  62ch;     /* los 600px del PDF, en ch */
+```
+
+- **Toda** sección usa `--section-y` o `--section-y-tight`. No hay una tercera.
+- `--section-y-tight` es para bandas que pertenecen visualmente a la sección de
+  arriba — el caso claro es la barra de confianza (§5.2) bajo el hero.
+- `--measure` en `ch` y no en px: el español ocupa ~20% más que el inglés, así
+  que 600px fijos dan dos longitudes de línea distintas. En `ch` ambos idiomas
+  reciben la misma medida.
+
+Esto es lo que convierte "mucho espacio en blanco" en un sistema en vez de un
+estado de ánimo.
 
 ## 4. Reglas que se convierten en gate
 
