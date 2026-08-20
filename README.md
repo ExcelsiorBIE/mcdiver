@@ -26,6 +26,7 @@ Nacional Coiba, Panamá, con salida desde Pixvae.
 | [`docs/07-design-system.md`](docs/07-design-system.md) | Contraste WCAG, escala tipográfica y ritmo vertical |
 | [`docs/08-content-integrity.md`](docs/08-content-integrity.md) | Los cinco puntos donde el PDF se contradice a sí mismo |
 | [`docs/09-component-vocabulary.md`](docs/09-component-vocabulary.md) | Los seis módulos especificados dos veces, y el hero con ocho descripciones |
+| [`docs/10-component-states.md`](docs/10-component-states.md) | Foco, hover, disabled, colores de estado, formularios, cards y FAB |
 | [`docs/source/`](docs/source/) | Material original: PDF de especificaciones + captura íntegra del sitio Wix |
 
 ## Regla de oro

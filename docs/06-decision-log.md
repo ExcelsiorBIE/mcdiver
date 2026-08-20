@@ -136,3 +136,27 @@ está especificada sección por sección y "parecen rayas" es criterio, no una
 violación como el contraste. Se implementa como pide el PDF y se le propone
 la alternativa con capturas después de la aprobación.
 **Ver:** `AGENTS.md` § "Dónde podemos decidir".
+
+### D19 — Anillo de foco de dos tonos, y `outline: none` prohibido
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** verificado que **ningún** color sólido pasa 3:1 (WCAG 1.4.11) contra
+los cuatro fondos del sitio. `#1A1A2E` falla sobre azul profundo (1.51), blanco
+falla sobre los tres fondos claros, el dorado falla sobre todos menos el azul.
+El fallo cae en la banda CTA de §5.10, el clic de mayor intención. Un anillo
+`#1A1A2E` interior + `#FFFFFF` exterior deja siempre un borde por encima de 3:1.
+**Ver:** `10-component-states.md` §1.
+
+### D20 — `disabled` con tokens propios, nunca con `opacity`
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** `opacity: .5` sobre el botón turquesa deja el texto en **2.08:1**
+(y 2.58 si el alpha va solo al texto). El alfa no sobrevive a un requisito de
+contraste: no atenúa, hace ilegible.
+
+### D21 — El dorado NO sirve como color de aviso
+**Decidió:** el equipo, **corrigiendo** una propuesta de Scuba Web Designer.
+**Razón:** se propuso reutilizar `#C9A96E` como color de warning por cercanía
+cromática. Da **2.24:1** sobre blanco y 2.12 sobre `#F8F9FA` — falla justo en
+los fondos donde vive el formulario. Solo pasa sobre azul profundo. Se añaden
+tres tokens semánticos contrastados (`#C0392B`, `#1E7A4F`, `#8A6D1F`), y todo
+estado lleva icono y texto además de color: el color confirma, nunca informa
+por sí solo.
