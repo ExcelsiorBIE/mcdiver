@@ -23,6 +23,7 @@ export type Trip = {
   photo: string;
   /** Q3: Jhon updates by DM. Never invent sold-out. No scarcity bar (Q9). */
   seats: "open" | "soldout";
+  dossier: { es: string; en: string };
 };
 
 export const trips: Trip[] = [
@@ -39,6 +40,7 @@ export const trips: Trip[] = [
     name: { es: "Plan Coiba Esencial", en: "Coiba Essential Plan" },
     photo: "/media/trip-essential.webp",
     seats: "open",
+    dossier: { es: "/dossier/coiba-esencial-es.pdf", en: "/dossier/coiba-essential-en.pdf" },
     itinerary: [
       {
         day: 1,
@@ -118,6 +120,7 @@ export const trips: Trip[] = [
     name: { es: "Plan Coiba Completo", en: "Coiba Complete Plan" },
     photo: "/media/trip-complete.webp",
     seats: "open",
+    dossier: { es: "/dossier/coiba-completo-es.pdf", en: "/dossier/coiba-complete-en.pdf" },
     itinerary: [
       {
         day: 1,

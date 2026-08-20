@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { allPageIds, pageIdForSlug, slugFor, type PageId } from "@/content/routes";
 import { META } from "@/content/meta";
+import { posts, postBySlug } from "@/content/posts";
 import {
   BlogPage,
   CoibaPage,
@@ -11,6 +12,7 @@ import {
   GalleryPage,
   LegalPage,
   PixvaePage,
+  PostPage,
   TeamPage,
   TripsPage,
 } from "@/components/interiors";
@@ -20,18 +22,14 @@ export function generateStaticParams() {
   for (const locale of locales) {
     for (const id of allPageIds()) {
       if (id === "home") continue;
-      const slug = slugFor(id, locale);
-      if (slug) params.push({ lang: locale, slug: [slug] });
+      const s = slugFor(id, locale);
+      if (s) params.push({ lang: locale, slug: [s] });
+    }
+    for (const post of posts) {
+      params.push({ lang: locale, slug: [slugFor("blog", locale), post.slug[locale]] });
     }
   }
   return params;
-}
-
-function resolve(lang: string, slug: string[]): { locale: Locale; pageId: PageId } {
-  if (!isLocale(lang)) notFound();
-  const pageId = pageIdForSlug(lang, slug);
-  if (!pageId || pageId === "home") notFound();
-  return { locale: lang, pageId };
 }
 
 export async function generateMetadata({
@@ -41,11 +39,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang, slug } = await params;
   if (!isLocale(lang)) return {};
+  if (slug.length === 2 && slug[0] === slugFor("blog", lang)) {
+    const post = postBySlug(lang, slug[1]);
+    if (!post) return {};
+    return { title: post.title[lang], description: post.excerpt[lang] };
+  }
   const pageId = pageIdForSlug(lang, slug);
   if (!pageId) return {};
   const m = META[pageId][lang];
-  const extra = pageId === "blog" ? { robots: { index: false, follow: false } } : {};
-  return { title: m.title, description: m.description, ...extra };
+  return { title: m.title, description: m.description };
 }
 
 export default async function CatchAllPage({
@@ -54,8 +56,18 @@ export default async function CatchAllPage({
   params: Promise<{ lang: string; slug: string[] }>;
 }) {
   const { lang, slug } = await params;
-  const { locale, pageId } = resolve(lang, slug);
-  switch (pageId) {
+  if (!isLocale(lang)) notFound();
+  const locale = lang as Locale;
+
+  if (slug.length === 2 && slug[0] === slugFor("blog", locale)) {
+    const post = postBySlug(locale, slug[1]);
+    if (!post) notFound();
+    return <PostPage locale={locale} post={post} />;
+  }
+
+  const pageId = pageIdForSlug(locale, slug);
+  if (!pageId || pageId === "home") notFound();
+  switch (pageId as PageId) {
     case "trips":
       return <TripsPage locale={locale} />;
     case "coiba":

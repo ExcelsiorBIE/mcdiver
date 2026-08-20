@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { site } from "@/content/site";
+import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 /** Tipografía exacta del PDF §2: Montserrat (títulos/botones) + Open Sans (cuerpo). */
@@ -45,7 +46,10 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className={`${montserrat.variable} ${openSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <JsonLd />
+        {children}
+      </body>
     </html>
   );
 }

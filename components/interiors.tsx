@@ -7,6 +7,9 @@ import { pixvaeCompare, pixvaeCopy } from "@/content/pixvae-compare";
 import { site, defaultWhatsappMessage } from "@/content/site";
 import { t } from "@/content/home";
 import { termsIntro, termsBlocks, privacyBlocks } from "@/content/legal";
+import { posts, type Post } from "@/content/posts";
+import { pathFor } from "@/content/routes";
+import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { TripCard } from "@/components/TripCard";
 import { TeamGrid } from "@/components/TeamGrid";
@@ -371,9 +374,39 @@ export function BlogPage({ locale }: { locale: Locale }) {
   return (
     <main id="main-content" tabIndex={-1}>
       <PageHero locale={locale} variant="compact" title={c.blogTitle} />
-      <section className="section-y mx-auto max-w-3xl px-4">
-        <p>{c.blogEmpty}</p>
+      <section className="section-y mx-auto max-w-6xl px-4 grid gap-8 md:grid-cols-2">
+        {posts.map((post) => (
+          <Link
+            key={post.id}
+            href={`${pathFor("blog", locale)}/${post.slug[locale]}`}
+            className="overflow-hidden bg-white shadow-sm"
+          >
+            <div className="relative aspect-16/9">
+              <Image src={post.cover} alt="" fill className="object-cover" sizes="50vw" />
+            </div>
+            <div className="p-5">
+              <p className="eyebrow">{post.category[locale]}</p>
+              <h2 className="mt-2 font-heading text-xl font-bold text-(--color-deep-blue)">{post.title[locale]}</h2>
+              <p className="mt-2 text-sm">{post.excerpt[locale]}</p>
+            </div>
+          </Link>
+        ))}
       </section>
+    </main>
+  );
+}
+
+export function PostPage({ locale, post }: { locale: Locale; post: Post }) {
+  return (
+    <main id="main-content" tabIndex={-1}>
+      <PageHero locale={locale} variant="standard" title={post.title[locale]} image={post.cover} />
+      <article className="section-y mx-auto max-w-3xl px-4 space-y-5">
+        <p className="eyebrow">{post.category[locale]}</p>
+        {post.body[locale].map((p) => (
+          <p key={p.slice(0, 24)}>{p}</p>
+        ))}
+        <CtaBand locale={locale} title={t(locale).ctaTitle} />
+      </article>
     </main>
   );
 }

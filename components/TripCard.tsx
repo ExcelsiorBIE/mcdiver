@@ -89,6 +89,12 @@ export function TripCard({ trip, locale }: { trip: Trip; locale: Locale }) {
             {copy.reserve}
           </a>
         )}
+        <a
+          href={trip.dossier[locale]}
+          className="mt-3 min-h-11 text-center text-sm font-semibold text-(--color-deep-blue) underline-offset-4 hover:underline"
+        >
+          {locale === "es" ? "Descargar dossier PDF" : "Download PDF pack"}
+        </a>
         <button
           type="button"
           className="mt-3 min-h-11 text-sm font-semibold text-(--color-deep-blue) underline-offset-4 hover:underline"
