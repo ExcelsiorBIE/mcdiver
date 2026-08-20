@@ -1,31 +1,47 @@
 # 04 — Plan de implementación
 
-**Estado: NO INICIADO.** Las nueve preguntas están respondidas y ninguna fase
-está bloqueada, pero **nada arranca hasta el "go" explícito de Jhon.**
+**Estado: EN CURSO.** Jhon dio el "go" el 20/08/2026. Fase 0 completa.
 
 Cada fase tiene entregable y criterio de aceptación. Una fase no se da por
 cerrada si su criterio no se cumple.
 
 ---
 
-## Fase 0 — Cimientos *(no bloqueada por preguntas)*
+## Fase 0 — Cimientos ✅ **COMPLETA** (20/08/2026)
 
-Scaffold Next 16 + TS + Tailwind 4, tokens de la paleta como CSS vars, fuentes
-Montserrat/Open Sans vía `next/font`, `proxy.ts` con el rewrite de idioma,
-`content/routes.ts`, y el esqueleto de los verificadores (`verify:i18n`,
-`verify:content`).
+Scaffold Next 16.3.1 + TS + Tailwind 4, tokens de la paleta como CSS vars,
+fuentes Montserrat/Open Sans vía `next/font`, `proxy.ts` con el rewrite de
+idioma, `content/routes.ts`, y los tres verificadores (`verify:i18n`,
+`verify:ssot`, `verify:a11y`).
 
-**Aceptación:** `/` y `/en` renderizan, el toggle cambia de idioma manteniendo
-la página, `npm run verify:all` pasa en verde.
+**Aceptación cumplida:** `/` y `/en` renderizan (verificado con curl: HTTP 200
+en ambos, sin redirect visible), el toggle en una página interior lleva a la
+misma página en el otro idioma (`/nuestros-viajes` ↔ `/en/our-trips`,
+verificado), `npm run verify:all` pasa en verde — 19 contrastes WCAG, i18n,
+contenido, lint y typecheck.
+
+**Nota de versión:** se subió de Next 16.2.12 a **16.3.1** — `npm audit`
+encontró 3 CVEs high transitivas (postcss, sharp) dentro del propio Next;
+16.3.1 las resuelve sin cambiar la convención de `proxy.ts` ni `params` como
+Promise. `npm audit`: 0 vulnerabilidades tras el bump.
+
+**Bug real encontrado y corregido en el camino:** `app/not-found.tsx`
+redeclaraba `<html>/<body>`, inválido en Next App Router — solo el layout raíz
+puede declararlos. Corregido antes de cerrar la fase.
 
 ---
 
-## Fase 1 — Pipeline de despliegue *(✅ desbloqueada — D26)*
+## Fase 1 — Pipeline de despliegue *(⏳ EN CURSO — necesita una acción de Jhon)*
 
 Proyecto en Vercel bajo la cuenta de Jhon, conectado al repo en `ExcelsiorBIE`.
 `ci.yml` con todos los gates, Lighthouse CI, secretos cargados, `noindex`
 mientras dure la etapa provisional, y rollback probado de verdad (no "debería
 funcionar" — probado).
+
+> **Lo único que no podemos hacer nosotros:** conectar el repo a la cuenta de
+> Vercel de Jhon requiere que él lo autorice — un agente no puede iniciar
+> sesión en su cuenta. Es un clic de su lado: en vercel.com → "Add New Project"
+> → importar `ExcelsiorBIE/mcdiver`. Se le pide en el resumen de estado.
 
 **Aceptación:** un commit de prueba a `main` llega solo a
 `https://mcdiver.vercel.app` en menos de 5 minutos, y un commit deliberadamente

@@ -6,7 +6,7 @@ Nacional Coiba, Panamá, con salida desde Pixvae.
 - **Dominio objetivo:** mcdiver.co
 - **Fundador / dueño del producto:** Jhon Torres (Miami, FL)
 - **Fuente de verdad del producto:** `docs/source/especificaciones-mcdiver-v1.0.pdf`
-- **Estado:** 🟡 **PLANEACIÓN COMPLETA** — 9/9 preguntas respondidas, ninguna fase bloqueada. Sin implementación: esperando el "go" del fundador.
+- **Estado:** 🟢 **EN IMPLEMENTACIÓN** — Jhon dio el "go" el 20/08/2026. Fase 0 completa (scaffold, tokens, routing bilingüe, verificadores). Fase 1 espera que Jhon conecte el repo a su cuenta de Vercel.
 
 > Este repositorio reemplaza por completo el desarrollo anterior
 > (`Scuba-Panama` / "Coiba Expeditions"). Arranque desde cero por decisión
