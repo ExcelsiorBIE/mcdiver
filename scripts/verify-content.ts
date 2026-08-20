@@ -105,6 +105,9 @@ const filesToScan = [
   "content/trips.ts",
   "content/team.ts",
   "content/stats.ts",
+  "content/home.ts",
+  "content/pixvae-compare.ts",
+  "content/gallery.ts",
 ];
 for (const rel of filesToScan) {
   const text = readFileSync(new URL(`../${rel}`, import.meta.url), "utf-8").toLowerCase();

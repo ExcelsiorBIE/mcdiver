@@ -19,6 +19,8 @@ export type Trip = {
   itinerary: { day: number; es: string; en: string }[];
   includes: { es: string[]; en: string[] };
   excludes: { es: string[]; en: string[] };
+  /** Foto 16:9 de la card. Mood/stock — no es footage de una salida concreta. */
+  photo: string;
 };
 
 export const trips: Trip[] = [
@@ -33,6 +35,7 @@ export const trips: Trip[] = [
     maxGroup: 12,
     includesInsurance: false,
     name: { es: "Plan Coiba Esencial", en: "Coiba Essential Plan" },
+    photo: "/media/trip-essential.webp",
     itinerary: [
       {
         day: 1,
@@ -108,6 +111,7 @@ export const trips: Trip[] = [
     maxGroup: 12,
     includesInsurance: true,
     name: { es: "Plan Coiba Completo", en: "Coiba Complete Plan" },
+    photo: "/media/trip-complete.webp",
     itinerary: [
       {
         day: 1,

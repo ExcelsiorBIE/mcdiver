@@ -61,3 +61,15 @@ export function alternatePath(id: PageId, targetLocale: Locale): string {
 export function allPageIds(): PageId[] {
   return pageIds;
 }
+
+/** Nav del PDF §4. Labels bilingües; destinos desde ROUTES (D6). */
+export const NAV: { id: PageId; es: string; en: string }[] = [
+  { id: "home", es: "Inicio", en: "Home" },
+  { id: "trips", es: "Nuestros Viajes", en: "Our Trips" },
+  { id: "coiba", es: "Isla Coiba", en: "Coiba Island" },
+  { id: "pixvae", es: "Por qué Pixvae", en: "Why Pixvae" },
+  { id: "gallery", es: "Galería", en: "Gallery" },
+  { id: "team", es: "Nosotros", en: "Team" },
+  { id: "faq", es: "FAQ", en: "FAQ" },
+  { id: "blog", es: "Blog", en: "Blog" },
+];

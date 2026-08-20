@@ -3,7 +3,19 @@ import Link from "next/link";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { pathFor } from "@/content/routes";
 import { META } from "@/content/meta";
+import { trips } from "@/content/trips";
+import { faqPreview } from "@/content/faq";
+import { t } from "@/content/home";
 import { notFound } from "next/navigation";
+import { HeroHome } from "@/components/HeroHome";
+import { TrustBar } from "@/components/TrustBar";
+import { TripCard } from "@/components/TripCard";
+import { WhyCoiba } from "@/components/WhyCoiba";
+import { PixvaeAdvantage } from "@/components/PixvaeAdvantage";
+import { TeamGrid } from "@/components/TeamGrid";
+import { GalleryPreview } from "@/components/GalleryPreview";
+import { FaqAccordion } from "@/components/FaqAccordion";
+import { FinalCta } from "@/components/FinalCta";
 
 export async function generateMetadata({
   params,
@@ -16,23 +28,6 @@ export async function generateMetadata({
   return { title: m.title, description: m.description };
 }
 
-const copy = {
-  es: {
-    tagline: "El Pacífico más prístino del mundo.",
-    subtitle: "A 20 minutos de Pixvae.",
-    description:
-      "Viajes de buceo exclusivos al Parque Nacional Coiba, Panamá. Grupos pequeños. Instructores PADI con más de 25 años de experiencia.",
-    cta: "Ver fechas disponibles",
-  },
-  en: {
-    tagline: "The world's most pristine Pacific.",
-    subtitle: "20 minutes from Pixvae.",
-    description:
-      "Exclusive dive expeditions to Coiba National Park, Panama. Small groups. PADI instructors with over 25 years of experience.",
-    cta: "See available dates",
-  },
-} as const;
-
 export default async function HomePage({
   params,
 }: {
@@ -41,32 +36,61 @@ export default async function HomePage({
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const locale = lang as Locale;
-  const t = copy[locale];
+  const copy = t(locale);
 
   return (
-    <section
-      className="flex min-h-[calc(100svh-56px)] flex-col items-center justify-center bg-(--color-soft-black) px-4 text-center text-white section-y"
-      aria-labelledby="hero-heading"
-    >
-      <h1
-        id="hero-heading"
-        className="font-heading font-extrabold"
-        style={{ fontSize: "var(--fs-display)" }}
+    <main id="main-content" tabIndex={-1}>
+      <HeroHome locale={locale} />
+      <TrustBar locale={locale} />
+
+      <section
+        id="proximas-salidas"
+        className="section-y bg-white"
+        aria-labelledby="departures-heading"
       >
-        {t.tagline}
-      </h1>
-      <p
-        className="mt-4 font-heading font-semibold text-(--color-turquoise)"
-        style={{ fontSize: "var(--fs-lead)" }}
-      >
-        {t.subtitle}
-      </p>
-      <p className="mt-6 measure text-white/90" style={{ fontSize: "var(--fs-body)" }}>
-        {t.description}
-      </p>
-      <Link href={pathFor("trips", locale)} className="btn-primary mt-8">
-        {t.cta}
-      </Link>
-    </section>
+        <div className="mx-auto max-w-6xl px-4">
+          <h2
+            id="departures-heading"
+            className="text-center font-heading font-bold text-(--color-deep-blue)"
+            style={{ fontSize: "var(--fs-h2)" }}
+          >
+            {copy.departuresTitle}
+          </h2>
+          <p className="mt-3 text-center text-(--color-soft-black)/75">{copy.departuresSub}</p>
+          <div className="gold-rule mx-auto mt-5" />
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            {trips.map((trip) => (
+              <TripCard key={trip.id} trip={trip} locale={locale} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <WhyCoiba locale={locale} />
+      <PixvaeAdvantage locale={locale} />
+      <TeamGrid locale={locale} />
+      <GalleryPreview locale={locale} />
+
+      <section className="section-y bg-white" aria-labelledby="faq-heading">
+        <div className="mx-auto max-w-3xl px-4">
+          <h2
+            id="faq-heading"
+            className="text-center font-heading font-bold text-(--color-deep-blue)"
+            style={{ fontSize: "var(--fs-h2)" }}
+          >
+            {copy.faqTitle}
+          </h2>
+          <div className="gold-rule mx-auto mt-5 mb-8" />
+          <FaqAccordion items={[...faqPreview]} locale={locale} />
+          <p className="mt-8 text-center">
+            <Link href={pathFor("faq", locale)} className="font-heading font-semibold text-(--color-deep-blue) underline-offset-4 hover:underline">
+              {copy.faqAll}
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <FinalCta locale={locale} />
+    </main>
   );
 }

@@ -9,6 +9,7 @@
  */
 export type TeamMember = {
   id: "pacho" | "sebastian" | "jhon";
+  displayName: string;
   photoBorder: "turquoise" | "gold";
   yearsExperience: number | null;
   padiCert: string | null;
@@ -20,6 +21,7 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     id: "pacho",
+    displayName: 'Francisco "Pacho" Martínez',
     photoBorder: "turquoise",
     yearsExperience: 25,
     padiCert: null, // pendiente: número real de certificación PADI
@@ -31,6 +33,7 @@ export const team: TeamMember[] = [
   },
   {
     id: "sebastian",
+    displayName: "Sebastián Martínez",
     photoBorder: "turquoise",
     yearsExperience: null, // pendiente: años reales (docs/08 CI-3)
     padiCert: null, // pendiente: número real de certificación PADI
@@ -42,6 +45,7 @@ export const team: TeamMember[] = [
   },
   {
     id: "jhon",
+    displayName: "Jhon Torres",
     photoBorder: "gold",
     yearsExperience: null,
     padiCert: null,

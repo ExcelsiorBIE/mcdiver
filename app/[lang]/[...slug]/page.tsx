@@ -58,13 +58,13 @@ export default async function CatchAllPage({
   const p = placeholder[locale](title);
 
   return (
-    <section className="section-y mx-auto max-w-3xl px-4">
-      <h1 className="font-heading" style={{ fontSize: "var(--fs-h2)" }}>
+    <main id="main-content" tabIndex={-1} className="section-y mx-auto max-w-3xl px-4">
+      <h1 className="font-heading text-(--color-deep-blue)" style={{ fontSize: "var(--fs-h2)" }}>
         {p.heading}
       </h1>
       <p className="mt-4 measure" style={{ fontSize: "var(--fs-body)" }}>
         {p.body}
       </p>
-    </section>
+    </main>
   );
 }
