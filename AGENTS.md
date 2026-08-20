@@ -22,6 +22,21 @@ escribir código.** Ya verificado:
 
 Donde Wix y el PDF se contradigan, gana el PDF. Ver `docs/01-wix-capture.md` §3.
 
+## Dónde podemos decidir, y dónde no
+
+Regla de límites. Aplícala antes de "mejorar" nada del PDF.
+
+| Situación | Quién decide | Ejemplos |
+| --- | --- | --- |
+| El PDF **calla** | **Nosotros.** Documentar la decisión. | Espaciado vertical, estructura de componentes, alturas de hero sin especificar, stack |
+| El PDF **se contradice** | **Nosotros**, eligiendo la versión honesta y avisando a Jhon. | Las cinco de `docs/08-content-integrity.md` |
+| El PDF viola un **estándar objetivo** | **Nosotros**, corrigiendo por el camino más barato. Se informa. | Contraste WCAG por debajo de 4.5:1 |
+| El PDF es **explícito** y nuestra objeción es de **gusto** | **Jhon.** Se propone con capturas, después de la aprobación. Nunca en silencio. | Colores de fondo por sección, orden de secciones, elección de copy |
+
+La distinción que más se resbala es la última contra la tercera. "Blanco sobre
+turquesa da 2.50:1" es un hecho medible. "Diez alternancias de fondo parecen
+rayas" es criterio. El primero se arregla; el segundo se propone.
+
 ## Reglas de contenido
 
 - **Un dato, un lugar.** Precios, fechas, cupos e inmersiones viven en

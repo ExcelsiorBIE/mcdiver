@@ -105,3 +105,34 @@ en el sitio que vendió el viaje. El resto de la respuesta (operaciones
 reguladas, briefing, divemaster en el agua) es cierto y suficiente. No existe
 versión defendible de la alternativa, así que no es una decisión del fundador.
 **Ver:** `08-content-integrity.md` CI-4.
+
+### D16 — Un módulo nombrado dos veces es un componente con variante
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** el PDF describe cada sección de forma independiente, así que seis
+módulos aparecen especificados dos veces en vocabularios distintos y solo dos
+vienen marcados como compartidos. Dos de ellos llevan datos: el preview de FAQ
+de §5.9 son las preguntas 1–4 de §8.6 **palabra por palabra**, y §8.3 es
+superconjunto de §5.5 con los tiempos de travesía. Autorados por separado,
+divergen en silencio y nada falla.
+**Corolario:** toda cifra presente en dos páginas se deriva de una fuente.
+**Ver:** `09-component-vocabulary.md`.
+
+### D17 — Se elimina la fila "Costo del combustible" de la comparativa
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** es coste operativo nuestro publicado al huésped, en una tabla que
+existe para justificar nuestro itinerario. Invita a *"¿por qué no es más
+barato entonces?"* y le muestra el margen a un competidor. Las otras cuatro
+filas ya cargan el beneficio para el huésped. Existe una versión defendible
+como argumento ambiental (combustible quemado, no dinero), pero habría que
+reescribirla; tal como está, se cae.
+
+### D18 — Límites: qué decidimos nosotros y qué le toca a Jhon
+**Decidió:** el equipo, a raíz de una propuesta sobre los fondos de sección.
+**Razón:** donde el PDF calla decidimos nosotros (espaciado, componentes);
+donde se contradice elegimos la versión honesta; donde viola un estándar
+medible corregimos. Pero donde el PDF es **explícito** y nuestra objeción es
+**estética**, decide Jhon. La alternancia de fondos es de esta última clase:
+está especificada sección por sección y "parecen rayas" es criterio, no una
+violación como el contraste. Se implementa como pide el PDF y se le propone
+la alternativa con capturas después de la aprobación.
+**Ver:** `AGENTS.md` § "Dónde podemos decidir".
