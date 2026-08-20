@@ -1,4 +1,5 @@
 import { site, defaultWhatsappMessage, tripWhatsappMessage } from "@/content/site";
+import { t } from "@/content/home";
 import type { Locale } from "@/lib/i18n";
 import type { Trip } from "@/content/trips";
 
@@ -22,7 +23,7 @@ export function ReserveButton({
     : site.whatsapp.waLink(defaultWhatsappMessage, locale);
   return (
     <a href={href} className={className ?? "btn-primary"} target="_blank" rel="noopener noreferrer">
-      {locale === "es" ? "Consultar por WhatsApp" : "Ask on WhatsApp"}
+      {t(locale).reserve}
     </a>
   );
 }

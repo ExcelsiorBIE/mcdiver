@@ -86,7 +86,7 @@ export function TripCard({ trip, locale }: { trip: Trip; locale: Locale }) {
           <p className="btn-primary mt-6 w-full cursor-not-allowed opacity-60">{seats}</p>
         ) : (
           <a href={wa} className="btn-primary mt-6 w-full" target="_blank" rel="noopener noreferrer">
-            {locale === "es" ? "Consultar por WhatsApp" : "Ask on WhatsApp"}
+            {copy.reserve}
           </a>
         )}
         <button
