@@ -30,7 +30,9 @@ export function proxy(request: NextRequest) {
   }
 
   requestHeaders.set("x-locale", "es");
-  const url = request.nextUrl.clone();
+  // Rewrite against the incoming request URL so host stays 127.0.0.1 vs localhost
+  // (a host mismatch makes Next proxy the rewrite as external and 500s).
+  const url = new URL(request.url);
   url.pathname = pathname === "/" ? "/es" : `/es${pathname}`;
   const response = NextResponse.rewrite(url, { request: { headers: requestHeaders } });
   response.headers.set("Content-Language", "es");
