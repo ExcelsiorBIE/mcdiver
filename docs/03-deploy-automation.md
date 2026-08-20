@@ -97,7 +97,38 @@ vercel rollback --yes        # vuelve al deploy anterior, ~segundos
 Después se arregla en el repo y se vuelve a desplegar. Jhon puede pedir el
 rollback por DM en una línea: *"devuelve el sitio a como estaba"*.
 
-## 7. Lo que hace falta de Jhon para que esto funcione
+## 7. Datos confirmados por el fundador (20/08/2026)
 
-Ver `05-open-questions.md`: **Q2** (email de leads), **Q4** (DNS del dominio),
-**Q5** (cuenta de Vercel). Sin Q4 el sitio existe pero no vive en mcdiver.co.
+| Pieza | Valor |
+| --- | --- |
+| Organización GitHub | **`ExcelsiorBIE`** — nada queda en cuentas personales |
+| Cuenta Vercel | La de Jhon, `jjtorresv@gmail.com` |
+| Registrador del dominio | **GoDaddy** — Jhon es dueño y administrador |
+| Correo de leads | `jjtorresv@gmail.com` *(provisional)* |
+
+## 8. Lanzamiento en dos etapas — **D26**
+
+Propuesta del propio fundador y es la forma correcta de hacerlo:
+
+```
+ETAPA 1 — mientras construimos
+  mcdiver.vercel.app          ← URL gratuita de Vercel
+  mcdiver.co                  ← sigue aparcado, intacto
+  · Jhon revisa y aprueba sobre una URL real
+  · robots noindex — Google nunca ve la versión provisional
+  · el pipeline completo ya funciona aquí
+
+ETAPA 2 — cuando Jhon dé el visto bueno final
+  · se añade mcdiver.co como dominio del mismo proyecto Vercel
+  · Jhon aplica dos registros DNS en GoDaddy (se los pasamos exactos)
+  · se quita el noindex
+  · el sitio queda vivo, sin ventana de corte
+```
+
+**Por qué es mejor que lo contrario:** el dominio no se toca hasta que hay algo
+que merezca vivir en él, Jhon aprueba mirando el sitio real en su móvil en vez
+de capturas, y el DNS se vuelve un paso de cinco minutos al final en lugar de
+un bloqueo al principio.
+
+**Efecto en el plan:** la Fase 1 deja de estar bloqueada. Ya no hace falta
+tocar GoDaddy para arrancar — solo al final.

@@ -77,8 +77,16 @@ clientes anteriores de Pacho y Sebastián"* y *"Jhon los conseguirá y los
 entregará como texto + foto. El desarrollador deja el módulo de testimonios
 listo para insertar."*
 
+### ✅ CONFIRMADO POR EL FUNDADOR (20/08/2026): **no son reales**
+
+Jhon, textualmente: *"No son testimonios reales."*
+
+Se eliminan. El módulo de testimonios se construye **vacío** y se llena solo
+cuando lleguen reseñas reales y atribuibles de clientes de Pacho. La homepage
+se maqueta para que la sección pueda no existir sin dejar un hueco raro.
+
 Es decir: al escribir el PDF, los testimonios reales **todavía no existían**.
-Los de Wix son casi con certeza texto de relleno de plantilla.
+Los de Wix eran relleno de plantilla, como sospechábamos.
 
 **No los vamos a migrar.** El módulo de testimonios se construye vacío y se
 llena cuando Jhon entregue reseñas reales y atribuibles. Reseñas inventadas

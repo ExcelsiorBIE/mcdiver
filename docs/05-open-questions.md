@@ -1,6 +1,55 @@
-# 05 — Preguntas abiertas para el fundador
+# 05 — Preguntas al fundador — ✅ TODAS RESUELTAS
 
-Solo lo que realmente cambia lo que construimos. Cada una dice qué bloquea.
+**Respondidas por Jhon el 20 de agosto de 2026.** Ninguna queda abierta.
+Los cuerpos de abajo se conservan como registro del razonamiento.
+
+| # | Pregunta | Respuesta de Jhon |
+| --- | --- | --- |
+| **Q1** | ¿Los testimonios de Wix son reales? | **NO son reales.** → se eliminan; módulo vacío hasta tener reseñas reales |
+| **Q2** | ¿Correo de los leads? | **jjtorresv@gmail.com** "por ahora" |
+| **Q3** | ¿Cómo editas los cupos? | **A** — nos lo pide por DM; sin CMS |
+| **Q4** | ¿DNS? | **GoDaddy**, él es dueño y admin; ejecuta los cambios que le indiquemos o nos da acceso |
+| **Q5** | ¿Cuenta de Vercel? | **La suya**, ya creada, `jjtorresv@gmail.com` |
+| **Q6** | ¿Nombre del repo? | Se mantiene `mcdiver`, **pero migrado a la organización `ExcelsiorBIE`** |
+| **Q7** | ¿Botón CTA? | **A** — texto oscuro `#1A1A2E` sobre turquesa; paleta intacta |
+| **Q8** | ¿Fuente del "30m+ promedio"? | **Sin fuente → se corrige.** Ver mandato abajo |
+| **Q9** | ¿Barra de cupos? | **B** — **sin barra**; solo "Grupos máx. 12 personas" |
+
+## 🔑 Mandato de honestidad (Q8) — aplica a todo el sitio
+
+Instrucción literal del fundador:
+
+> *"Por favor todo lo que encuentres contradictorio corrígelo a lo real, no vamos
+> a prometer nada que nos reclamen luego, como asegurar que van a ver tiburón
+> ballena y ese tipo de cosas, hay que estandarizar todos los textos a nada que
+> nos comprometa y nos veamos demandados, la naturaleza no es predecible, así
+> que acomoda todo a **estandarizar, no garantizar**."*
+
+Esto es una **autorización general**, no una respuesta a una sola pregunta.
+Convierte en aplicables sin volver a preguntar: CI-1, CI-2, CI-3, CI-4, CI-5,
+CI-6, la regla de alt text de D12 y cualquier contradicción futura.
+
+**Regla operativa:** *estandarizar, no garantizar.* Ninguna afirmación sobre
+fauna, visibilidad, clima o condiciones se escribe en indicativo de certeza.
+Se describe lo que **habita** Coiba y **cuándo es más probable**, nunca lo que
+el huésped **verá**.
+
+---
+
+## Nueva decisión: lanzamiento en dos etapas *(propuesta del fundador)*
+
+> *"¿no podemos hacer un sitio temporal free en Vercel hasta que yo apruebe
+> versión final para salir a productivo y en ese momento sí montamos el DNS al
+> dominio mcdiver.co?"*
+
+**Sí, y es exactamente como debe hacerse.** Ver `03-deploy-automation.md` §8.
+Adoptado como **D26**.
+
+---
+
+## Registro original de las preguntas
+
+Se conserva el razonamiento de cada una.
 
 ---
 

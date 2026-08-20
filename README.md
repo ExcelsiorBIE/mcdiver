@@ -6,7 +6,7 @@ Nacional Coiba, Panamá, con salida desde Pixvae.
 - **Dominio objetivo:** mcdiver.co
 - **Fundador / dueño del producto:** Jhon Torres (Miami, FL)
 - **Fuente de verdad del producto:** `docs/source/especificaciones-mcdiver-v1.0.pdf`
-- **Estado:** 🟡 **PLANEACIÓN** — sin implementación. Esperando aprobación del fundador.
+- **Estado:** 🟡 **PLANEACIÓN COMPLETA** — 9/9 preguntas respondidas, ninguna fase bloqueada. Sin implementación: esperando el "go" del fundador.
 
 > Este repositorio reemplaza por completo el desarrollo anterior
 > (`Scuba-Panama` / "Coiba Expeditions"). Arranque desde cero por decisión
@@ -27,6 +27,7 @@ Nacional Coiba, Panamá, con salida desde Pixvae.
 | [`docs/08-content-integrity.md`](docs/08-content-integrity.md) | Los cinco puntos donde el PDF se contradice a sí mismo |
 | [`docs/09-component-vocabulary.md`](docs/09-component-vocabulary.md) | Los seis módulos especificados dos veces, y el hero con ocho descripciones |
 | [`docs/10-component-states.md`](docs/10-component-states.md) | Foco, hover, disabled, colores de estado, formularios, cards y FAB |
+| [`docs/11-media-motion-seo.md`](docs/11-media-motion-seo.md) | Video del hero vs PageSpeed, movimiento, páginas de error, meta titles |
 | [`docs/source/`](docs/source/) | Material original: PDF de especificaciones + captura íntegra del sitio Wix |
 
 ## Regla de oro

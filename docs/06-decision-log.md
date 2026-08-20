@@ -160,3 +160,46 @@ los fondos donde vive el formulario. Solo pasa sobre azul profundo. Se añaden
 tres tokens semánticos contrastados (`#C0392B`, `#1E7A4F`, `#8A6D1F`), y todo
 estado lleva icono y texto además de color: el color confirma, nunca informa
 por sí solo.
+
+---
+
+## 2026-08-20 — Respuestas del fundador
+
+### D22 — El repo vive en la organización `ExcelsiorBIE`
+**Decidió:** Jhon. *"migralo totalmente a mi organización ExcelsiorBIE, tal
+como teníamos el anterior, nada debe quedar bajo el de Christian."*
+**Consecuencia:** el proyecto es suyo desde el primer día, no de un colaborador.
+El proyecto de Vercel se conecta a su cuenta `jjtorresv@gmail.com`.
+
+### D23 — Fuera la barra de cupos (Q9 = B)
+**Decidió:** Jhon.
+**Razón:** prefiere no mantener el número al día, y una barra congelada es
+escasez fabricada. Las cards llevan solo "Grupos máx. 12 personas", que es
+cierto y no envejece. Resuelve CI-5 entero — desaparecen de una vez la etiqueta
+ambigua, la barra invertida y el choque con el mínimo de 10.
+
+### D24 — "Estandarizar, no garantizar" (Q8) — mandato de alcance total
+**Decidió:** Jhon.
+**Razón:** *"no vamos a prometer nada que nos reclamen luego... la naturaleza
+no es predecible."* Es una autorización general, no la respuesta a una pregunta.
+**Consecuencia:** ninguna afirmación sobre fauna, visibilidad, clima o
+condiciones se escribe en indicativo de certeza. Se describe lo que **habita**
+Coiba y **cuándo es más probable**, nunca lo que el huésped **verá**. Vuelve
+aplicables CI-1, CI-2, CI-4, CI-6 y la regla de alt text sin volver a preguntar.
+
+### D25 — Botón CTA con texto oscuro (Q7 = A)
+**Decidió:** Jhon. La paleta de cinco colores queda intacta; solo cambia el
+color del texto encima. Confirma D9.
+
+### D26 — Lanzamiento en dos etapas: `.vercel.app` primero, dominio al final
+**Decidió:** Jhon, y es la propuesta correcta.
+**Razón:** el sitio se construye y se aprueba sobre una URL gratuita de Vercel
+con `noindex`; `mcdiver.co` no se toca hasta que haya algo que merezca vivir
+ahí. Aprueba mirando el sitio real, no capturas, y el DNS pasa de ser un
+bloqueo inicial a un paso de cinco minutos al final.
+**Consecuencia:** **la Fase 1 deja de estar bloqueada.**
+**Ver:** `03-deploy-automation.md` §8.
+
+### D27 — Los testimonios de Wix eran falsos: confirmado (Q1)
+**Decidió:** Jhon. *"No son testimonios reales."* Confirma D4. Módulo vacío
+hasta que entregue reseñas reales.

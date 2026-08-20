@@ -1,6 +1,7 @@
 # 04 — Plan de implementación
 
-**Estado: NO INICIADO.** Nada de esto se ejecuta hasta que el fundador apruebe.
+**Estado: NO INICIADO.** Las nueve preguntas están respondidas y ninguna fase
+está bloqueada, pero **nada arranca hasta el "go" explícito de Jhon.**
 
 Cada fase tiene entregable y criterio de aceptación. Una fase no se da por
 cerrada si su criterio no se cumple.
@@ -19,14 +20,16 @@ la página, `npm run verify:all` pasa en verde.
 
 ---
 
-## Fase 1 — Pipeline de despliegue *(bloqueada por Q4, Q5)*
+## Fase 1 — Pipeline de despliegue *(✅ desbloqueada — D26)*
 
-Proyecto en Vercel, `ci.yml` con todos los gates, Lighthouse CI, secretos
-cargados, DNS de `mcdiver.co` apuntado a Vercel, rollback probado de verdad
-(no "debería funcionar" — probado).
+Proyecto en Vercel bajo la cuenta de Jhon, conectado al repo en `ExcelsiorBIE`.
+`ci.yml` con todos los gates, Lighthouse CI, secretos cargados, `noindex`
+mientras dure la etapa provisional, y rollback probado de verdad (no "debería
+funcionar" — probado).
 
-**Aceptación:** un commit de prueba a `main` llega solo a `https://mcdiver.co`
-en menos de 5 minutos, y un commit deliberadamente roto **no** llega.
+**Aceptación:** un commit de prueba a `main` llega solo a
+`https://mcdiver.vercel.app` en menos de 5 minutos, y un commit deliberadamente
+roto **no** llega. El dominio `mcdiver.co` no se toca hasta la Fase 8 (D26).
 
 > Se hace temprano a propósito. Es el requisito que más le importa al fundador
 > y el que más sorpresas da; si falla, queremos saberlo la primera semana y no
@@ -34,23 +37,25 @@ en menos de 5 minutos, y un commit deliberadamente roto **no** llega.
 
 ---
 
-## Fase 2 — Modelo de contenido *(bloqueada por Q1, Q3)*
+## Fase 2 — Modelo de contenido *(✅ desbloqueada)*
 
 Poblar `content/` con todo el material del PDF: los 2 planes con sus
 itinerarios e incluye/no incluye, las 15 FAQ, los 3 miembros del equipo, los
 4 sitios de buceo, datos de contacto. Todo con su par ES/EN.
 
-**Aceptación:** ningún precio, fecha ni cupo aparece escrito a mano en un
-componente. `verify:content` lo comprueba.
+**Aceptación:** ningún precio ni fecha aparece escrito a mano en un componente.
+`verify:content` lo comprueba. Todo el copy pasa por la regla **"estandarizar,
+no garantizar"** (D24) antes de entrar.
 
 ---
 
 ## Fase 3 — Homepage (11 secciones)
 
 Hero con video+poster · barra de confianza · **próximas salidas** (la sección
-que convierte: cards con badge, barra de cupos, acordeón de itinerario, tabla
-incluye/no incluye) · por qué Coiba · ventaja Pixvae · equipo · galería preview
-· testimonios (módulo vacío, ver Q1) · FAQ preview · CTA final · footer.
+que convierte: cards con badge, **sin barra de cupos** (D23), acordeón de
+itinerario, tabla incluye/no incluye) · por qué Coiba · ventaja Pixvae · equipo
+· galería preview · testimonios (**módulo vacío** — D27) · FAQ preview · CTA
+final · footer.
 Más el botón flotante de WhatsApp global.
 
 **Aceptación:** paridad sección por sección con el PDF §5, en ES y EN,
@@ -68,7 +73,7 @@ gemela en inglés.
 
 ---
 
-## Fase 5 — Formulario y captura de leads *(bloqueada por Q2)*
+## Fase 5 — Formulario y captura de leads *(✅ desbloqueada — jjtorresv@gmail.com)*
 
 Route Handler + Zod + Resend, honeypot y rate limit, modal desde "Reservar mi
 lugar", confirmación en pantalla, WhatsApp prellenado como alternativa.
@@ -102,8 +107,17 @@ Coiba"* y *"Todo lo que necesitas saber para bucear en el PNN Coiba"*.
 ## Fase 8 — Lanzamiento
 
 Legales (privacidad y términos, con la política de cancelación real del PDF
-§8.6 Q14), revisión de contenido con Jhon, QA cross-browser, Search Console,
-y el sitio en vivo.
+§8.6 Q14), revisión de contenido con Jhon, QA cross-browser, Search Console.
+
+Y los tres pasos del corte a producción (D26):
+1. Jhon aprueba mirando `mcdiver.vercel.app` en su móvil.
+2. Se añade `mcdiver.co` al proyecto Vercel; Jhon aplica dos registros DNS en
+   GoDaddy con los valores exactos que le pasemos.
+3. Se retira el `noindex`.
+
+**Y un paso que solo puede dar Jhon:** despublicar el sitio de Wix. Si sigue
+vivo, queda un sitio obsoleto compitiendo en búsquedas con precios de
+plantilla, la página de kayak y surf, y los testimonios falsos.
 
 **Aceptación:** `mcdiver.co` sirviendo el sitio real, formulario recibiendo,
 WhatsApp funcionando, analítica registrando.
@@ -113,8 +127,8 @@ WhatsApp funcionando, analítica registrando.
 ## Después del lanzamiento (fase 2 del PDF, fuera de alcance hoy)
 
 Stripe/PayPal para el anticipo del 50% · fotos reales de Jhon reemplazando el
-stock · testimonios reales · más artículos de blog · panel de cupos si Q3 así
-lo decide.
+stock · testimonios reales · más artículos de blog · panel de administración
+si algún día Jhon prefiere editar sin pedírnoslo (hoy: opción A, D23).
 
 ---
 
@@ -122,13 +136,14 @@ lo decide.
 
 ```
 Fase 0 ──▶ Fase 1 ──▶ Fase 2 ──▶ Fase 3 ──▶ Fase 4 ──▶ Fase 5 ──▶ Fase 6 ──▶ Fase 8
-              ▲          ▲                                ▲
-              │          │                                │
-             Q4,Q5      Q1,Q3                             Q2
+                                                                              ▲
+                                                                              │
+                                                                       DNS en GoDaddy
 ```
 
-Las Fases 0 y 1 pueden arrancar apenas haya aprobación. Q1 y Q3 se necesitan
-antes de Fase 2; Q2 antes de Fase 5; Q4 y Q5 antes de Fase 1.
+**Ninguna fase está bloqueada.** Las nueve respuestas del fundador llegaron el
+20/08/2026 y el lanzamiento en dos etapas (D26) mueve el único requisito
+externo — los registros DNS en GoDaddy — de la Fase 1 a la Fase 8.
 
 **Advertencia de calendario:** el primer viaje sale el **15 de octubre de
 2026**. Un sitio que capture leads en noviembre no sirve para llenar ese

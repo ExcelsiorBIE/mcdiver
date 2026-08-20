@@ -11,6 +11,23 @@ Todos verificados contra `source/especificaciones-mcdiver-v1.0.txt`.
 > cliente sin fuente. Si falta, se usa el dato verificable o se reemplaza por
 > otro que sí lo sea. Nunca un invento plausible.
 
+## ✅ Mandato del fundador — 20 de agosto de 2026
+
+Jhon autorizó corregir **todo** esto sin volver a preguntar:
+
+> *"todo lo que encuentres contradictorio corrígelo a lo real... hay que
+> estandarizar todos los textos a nada que nos comprometa y nos veamos
+> demandados, la naturaleza no es predecible, así que acomoda todo a
+> **estandarizar, no garantizar**."*
+
+Las seis contradicciones pasan de "propuesta" a **aplicables**. Y la regla se
+extiende más allá de ellas: **cualquier** afirmación sobre fauna, visibilidad,
+clima o condiciones se redacta como probabilidad y temporada, nunca como
+certeza. Nada de lo que un huésped pueda reclamar después.
+
+Se elimina también la pregunta Q1: **los testimonios de Wix NO son reales**,
+confirmado por el fundador. Ver §4 de `01-wix-capture.md`.
+
 ---
 
 ## CI-1 — Visibilidad: "30m+ promedio" vs "hasta 30m, dic–may"
@@ -131,16 +148,33 @@ para reservar más honesto y más urgente que una barra falsa.
 
 ---
 
-## Resumen
+---
 
-| # | Necesita a Jhon | Estado |
+## CI-6 — El video del hero no puede alcanzar la nota que el propio PDF exige
+
+§9 pide, en el mismo párrafo, *"Video hero: máx **15MB**"* y *"PageSpeed
+objetivo: **>80 mobile, >90 desktop**"*. Quince megabytes tardan **75 s** en el
+throttle mobile de Lighthouse y **12 s** en el de desktop, antes de decodificar
+un fotograma. El tope de tamaño hace imposible la nota.
+
+**Por defecto:** poster WebP ≤300 KB (su propio tope de §9) como elemento LCP,
+video graduado a 2–3 MB con `preload="none"` enganchado después del LCP. Se
+cumplen los dos requisitos sin sobrescribir ninguna cifra suya.
+
+**Detalle completo:** `11-media-motion-seo.md` §1.
+
+---
+
+## Resumen — todo aplicable tras el mandato del fundador
+
+| # | Qué era | Estado |
 | --- | --- | --- |
-| CI-1 Visibilidad | Sí — **Q8** | Preguntado |
-| CI-2 Fauna | No | Regla aplicada |
-| CI-3 Credenciales | Sí — dato pendiente | En `00-brief.md` §8 |
-| CI-4 "Completamente" | No — se informa | Regla aplicada |
-| CI-5 Barra de cupos | Sí — **Q9** | Preguntado |
+| CI-1 Visibilidad "30m+ promedio" | Q8 | ✅ **Se corrige** — mandato |
+| CI-2 Fauna en indicativo | Regla | ✅ **Se corrige** — mandato |
+| CI-3 Credenciales de Sebastián | Dato pendiente | ⏳ Faltan sus años reales |
+| CI-4 "Completamente" seguro | Regla | ✅ **Se elimina** — mandato |
+| CI-5 Barra de cupos | Q9 | ✅ **Se elimina la barra** (opción B) |
+| CI-6 Video 15MB vs PageSpeed | Nuevo | ✅ Poster + video graduado |
 
-Solo dos llegaron a la lista de preguntas del fundador. El resto se resuelve
-con una regla, y se le informa cuando apruebe. Su atención es un recurso
-escaso: se gasta en lo que solo él puede decidir.
+Solo queda un insumo pendiente y no bloquea nada: los años reales de Pacho y
+de Sebastián por separado (CI-3), junto a sus números PADI.
