@@ -1,12 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { team } from "@/content/team";
 import { trips } from "@/content/trips";
 import { faqs } from "@/content/faq";
 import { diveSites } from "@/content/dive-sites";
 import { pixvaeCompare, pixvaeCopy } from "@/content/pixvae-compare";
 import { site, defaultWhatsappMessage } from "@/content/site";
-import { pathFor } from "@/content/routes";
 import { t } from "@/content/home";
 import { PageHero } from "@/components/PageHero";
 import { TripCard } from "@/components/TripCard";
@@ -15,6 +13,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { CtaBand } from "@/components/CtaBand";
 import { ReserveButton } from "@/components/ReserveButton";
+import { InquiryForm } from "@/components/InquiryForm";
 import type { Locale } from "@/lib/i18n";
 
 const copy = {
@@ -107,6 +106,9 @@ export function TripsPage({ locale }: { locale: Locale }) {
             {c.doubts}
           </a>
         </p>
+        <div className="mx-auto mt-16 max-w-xl">
+          <InquiryForm locale={locale} />
+        </div>
       </section>
     </main>
   );
@@ -304,11 +306,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
           <ReserveButton locale={locale} />
         </div>
         <div className="bg-(--color-light-gray) p-8">
-          <p className="font-heading text-lg font-bold text-(--color-deep-blue)">{c.doubts}</p>
-          <p className="mt-3 text-sm">{c.contactSub}</p>
-          <Link href={pathFor("faq", locale)} className="mt-4 inline-block font-semibold underline">
-            FAQ
-          </Link>
+          <InquiryForm locale={locale} />
         </div>
       </section>
     </main>
