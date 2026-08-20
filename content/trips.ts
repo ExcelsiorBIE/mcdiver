@@ -21,6 +21,8 @@ export type Trip = {
   excludes: { es: string[]; en: string[] };
   /** Foto 16:9 de la card. Mood/stock — no es footage de una salida concreta. */
   photo: string;
+  /** Q3: Jhon updates by DM. Never invent sold-out. No scarcity bar (Q9). */
+  seats: "open" | "soldout";
 };
 
 export const trips: Trip[] = [
@@ -36,6 +38,7 @@ export const trips: Trip[] = [
     includesInsurance: false,
     name: { es: "Plan Coiba Esencial", en: "Coiba Essential Plan" },
     photo: "/media/trip-essential.webp",
+    seats: "open",
     itinerary: [
       {
         day: 1,
@@ -112,6 +115,7 @@ export const trips: Trip[] = [
     includesInsurance: true,
     name: { es: "Plan Coiba Completo", en: "Coiba Complete Plan" },
     photo: "/media/trip-complete.webp",
+    seats: "open",
     itinerary: [
       {
         day: 1,

@@ -32,3 +32,14 @@ export const defaultWhatsappMessage = {
   es: "Hola Jhon, me interesa un viaje de buceo a Coiba con MCDiver. ¿Me puedes dar más información?",
   en: "Hi Jhon, I'm interested in a Coiba dive trip with MCDiver. Can you share more info?",
 };
+
+export function tripWhatsappMessage(
+  locale: "es" | "en",
+  tripName: string,
+  dates: string,
+) {
+  if (locale === "es") {
+    return `Hola Jhon, me interesa el ${tripName} (${dates}). ¿Hay lugar en el grupo?`;
+  }
+  return `Hi Jhon, I'm interested in ${tripName} (${dates}). Is there a spot in the group?`;
+}

@@ -13,7 +13,6 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { CtaBand } from "@/components/CtaBand";
 import { ReserveButton } from "@/components/ReserveButton";
-import { InquiryForm } from "@/components/InquiryForm";
 import type { Locale } from "@/lib/i18n";
 
 const copy = {
@@ -41,8 +40,8 @@ const copy = {
     storyTitle: "La historia detrás de MCDiver",
     faqTitle: "Preguntas frecuentes",
     faqSub: "Todo lo que necesitas saber antes de bucear en Coiba",
-    contactTitle: "Hablemos de tu próximo viaje",
-    contactSub: "WhatsApp o correo. El formulario de reserva también abre desde el botón Reservar.",
+    contactTitle: "Más info y reservas",
+    contactSub: "Grupos pequeños: te cotizamos por WhatsApp, en un chat con Jhon. Nada de formularios largos.",
     blogTitle: "Blog",
     blogEmpty: "Todavía no hay artículos publicados. El sitio no indexa esta sección hasta que existan.",
     seeInPerson: "¿Quieres ver esto en persona?",
@@ -72,8 +71,8 @@ const copy = {
     storyTitle: "The story behind MCDiver",
     faqTitle: "Frequently asked questions",
     faqSub: "Everything you need to know before diving Coiba",
-    contactTitle: "Let's talk about your next trip",
-    contactSub: "WhatsApp or email. The booking dialog also opens from Reserve.",
+    contactTitle: "More info & booking",
+    contactSub: "Small groups: we quote on WhatsApp, in a chat with Jhon. No long forms.",
     blogTitle: "Blog",
     blogEmpty: "No articles published yet. This section stays out of the index until they exist.",
     seeInPerson: "Want to see this in person?",
@@ -106,9 +105,6 @@ export function TripsPage({ locale }: { locale: Locale }) {
             {c.doubts}
           </a>
         </p>
-        <div className="mx-auto mt-16 max-w-xl">
-          <InquiryForm locale={locale} />
-        </div>
       </section>
     </main>
   );
@@ -288,26 +284,27 @@ export function ContactPage({ locale }: { locale: Locale }) {
   return (
     <main id="main-content" tabIndex={-1}>
       <PageHero locale={locale} variant="compact" title={c.contactTitle} subtitle={c.contactSub} />
-      <section className="section-y mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-2">
-        <div className="space-y-4">
-          <p>
-            WhatsApp:{" "}
-            <a className="underline" href={site.whatsapp.waLink(defaultWhatsappMessage, locale)}>
-              {site.whatsapp.e164}
-            </a>
-          </p>
-          <p>
-            Email: <a className="underline" href={`mailto:${site.email}`}>{site.email}</a>
-          </p>
-          <p>{site.location[locale]}</p>
-          <p>
-            {c.hours}: {site.hours[locale]}
-          </p>
-          <ReserveButton locale={locale} />
+      <section className="bg-(--color-turquoise) text-(--color-on-turquoise)">
+        <div className="mx-auto max-w-3xl px-4 py-16 text-center">
+          <h2 className="font-heading text-3xl font-bold">{c.contactTitle}</h2>
+          <p className="mt-4">{c.contactSub}</p>
+          <ReserveButton locale={locale} className="btn-primary mt-8" />
         </div>
-        <div className="bg-(--color-light-gray) p-8">
-          <InquiryForm locale={locale} />
-        </div>
+      </section>
+      <section className="section-y mx-auto max-w-3xl px-4 space-y-3 text-center">
+        <p>
+          WhatsApp{" "}
+          <a className="underline" href={site.whatsapp.waLink(defaultWhatsappMessage, locale)}>
+            {site.whatsapp.e164}
+          </a>
+        </p>
+        <p>
+          Email: <a className="underline" href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        <p>{site.location[locale]}</p>
+        <p>
+          {c.hours}: {site.hours[locale]}
+        </p>
       </section>
     </main>
   );

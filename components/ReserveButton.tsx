@@ -1,15 +1,28 @@
-"use client";
-
-import { t } from "@/content/home";
-import { useReserve } from "@/components/ReserveContext";
+import { site, defaultWhatsappMessage, tripWhatsappMessage } from "@/content/site";
 import type { Locale } from "@/lib/i18n";
-import type { TripId } from "@/content/trips";
+import type { Trip } from "@/content/trips";
 
-export function ReserveButton({ locale, tripId, className }: { locale: Locale; tripId?: TripId; className?: string }) {
-  const reserve = useReserve();
+export function ReserveButton({
+  locale,
+  trip,
+  className,
+}: {
+  locale: Locale;
+  trip?: Trip;
+  className?: string;
+}) {
+  const href = trip
+    ? site.whatsapp.waLink(
+        {
+          es: tripWhatsappMessage("es", trip.name.es, trip.dates.es),
+          en: tripWhatsappMessage("en", trip.name.en, trip.dates.en),
+        },
+        locale,
+      )
+    : site.whatsapp.waLink(defaultWhatsappMessage, locale);
   return (
-    <button type="button" className={className ?? "btn-primary"} onClick={() => reserve(tripId)}>
-      {t(locale).reserve}
-    </button>
+    <a href={href} className={className ?? "btn-primary"} target="_blank" rel="noopener noreferrer">
+      {locale === "es" ? "Consultar por WhatsApp" : "Ask on WhatsApp"}
+    </a>
   );
 }

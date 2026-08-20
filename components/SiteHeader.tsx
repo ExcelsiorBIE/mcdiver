@@ -11,11 +11,11 @@ import type { Locale } from "@/lib/i18n";
 export function SiteHeader({
   locale,
   pageId,
-  onReserve,
+  reserveHref,
 }: {
   locale: Locale;
   pageId: PageId;
-  onReserve: () => void;
+  reserveHref: string;
 }) {
   const copy = t(locale);
   const [heroPast, setHeroPast] = useState(false);
@@ -75,9 +75,9 @@ export function SiteHeader({
 
         <div className="ml-auto flex items-center gap-2 lg:ml-4">
           <LanguageToggle locale={locale} pageId={pageId} />
-          <button type="button" className="btn-gold hidden sm:inline-flex" onClick={onReserve}>
+          <a href={reserveHref} className="btn-gold hidden sm:inline-flex" target="_blank" rel="noopener noreferrer">
             {copy.book}
-          </button>
+          </a>
           <button
             type="button"
             className="inline-flex min-h-11 min-w-11 items-center justify-center lg:hidden"
@@ -107,9 +107,9 @@ export function SiteHeader({
               {item[locale]}
             </Link>
           ))}
-          <button type="button" className="btn-gold mt-4 self-start" onClick={() => { setOpen(false); onReserve(); }}>
+          <a href={reserveHref} className="btn-gold mt-4 self-start" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
             {copy.book}
-          </button>
+          </a>
         </nav>
       </div>
     </header>
