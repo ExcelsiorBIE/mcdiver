@@ -27,6 +27,8 @@ export const metadata: Metadata = {
   description:
     "Viajes de buceo exclusivos al Parque Nacional Coiba, Panamá, saliendo desde Pixvae. Grupos pequeños, instructores PADI.",
   applicationName: site.brand,
+  // D26: provisional Vercel URL must not be indexed until mcdiver.co launch.
+  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
