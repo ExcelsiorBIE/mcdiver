@@ -109,4 +109,24 @@ export const META: Record<PageId, { es: { title: string; description: string }; 
       description: "Reach us by WhatsApp or email to book your Coiba dive trip with MCDiver.",
     },
   },
+  terms: {
+    es: {
+      title: "Condiciones generales | MCDiver",
+      description: "Pago, cancelación, mínimo de grupo y honestidad operativa de los viajes MCDiver a Coiba.",
+    },
+    en: {
+      title: "Terms | MCDiver",
+      description: "Payment, cancellation, group minimum and operational honesty for MCDiver Coiba trips.",
+    },
+  },
+  privacy: {
+    es: {
+      title: "Privacidad | MCDiver",
+      description: "Cómo usamos tu nombre, correo y WhatsApp cuando pides información de un viaje MCDiver.",
+    },
+    en: {
+      title: "Privacy | MCDiver",
+      description: "How we use your name, email and WhatsApp when you ask about an MCDiver trip.",
+    },
+  },
 };

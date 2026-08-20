@@ -14,7 +14,9 @@ export type PageId =
   | "gallery"
   | "faq"
   | "blog"
-  | "contact";
+  | "contact"
+  | "terms"
+  | "privacy";
 
 type RouteEntry = { es: string; en: string };
 
@@ -28,6 +30,8 @@ export const ROUTES: Record<PageId, RouteEntry> = {
   faq: { es: "faq", en: "faq" },
   blog: { es: "blog", en: "blog" },
   contact: { es: "contacto", en: "contact" },
+  terms: { es: "condiciones-generales", en: "terms" },
+  privacy: { es: "privacidad", en: "privacy" },
 };
 
 const pageIds = Object.keys(ROUTES) as PageId[];

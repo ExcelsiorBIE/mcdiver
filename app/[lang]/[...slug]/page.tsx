@@ -9,6 +9,7 @@ import {
   ContactPage,
   FaqPage,
   GalleryPage,
+  LegalPage,
   PixvaePage,
   TeamPage,
   TripsPage,
@@ -71,6 +72,10 @@ export default async function CatchAllPage({
       return <ContactPage locale={locale} />;
     case "blog":
       return <BlogPage locale={locale} />;
+    case "terms":
+      return <LegalPage locale={locale} kind="terms" />;
+    case "privacy":
+      return <LegalPage locale={locale} kind="privacy" />;
     default:
       notFound();
   }

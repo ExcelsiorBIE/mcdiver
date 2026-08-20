@@ -50,7 +50,13 @@ export function SiteFooter({ locale, pageId }: { locale: Locale; pageId: PageId 
         <div>
           <p className="eyebrow">{locale === "es" ? "Legal" : "Legal"}</p>
           <p className="mt-3 text-sm text-white/70">
-            {legal.privacy} · {legal.terms}
+            <Link href={pathFor("privacy", locale)} className="hover:text-(--color-sand-gold)">
+              {legal.privacy}
+            </Link>
+            {" · "}
+            <Link href={pathFor("terms", locale)} className="hover:text-(--color-sand-gold)">
+              {legal.terms}
+            </Link>
           </p>
           <p className="mt-4 text-sm text-white/60">© 2026 {site.brand}.</p>
           <div className="mt-4">

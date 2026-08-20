@@ -6,6 +6,7 @@ import { diveSites } from "@/content/dive-sites";
 import { pixvaeCompare, pixvaeCopy } from "@/content/pixvae-compare";
 import { site, defaultWhatsappMessage } from "@/content/site";
 import { t } from "@/content/home";
+import { termsIntro, termsBlocks, privacyBlocks } from "@/content/legal";
 import { PageHero } from "@/components/PageHero";
 import { TripCard } from "@/components/TripCard";
 import { TeamGrid } from "@/components/TeamGrid";
@@ -306,6 +307,38 @@ export function ContactPage({ locale }: { locale: Locale }) {
           {c.hours}: {site.hours[locale]}
         </p>
       </section>
+    </main>
+  );
+}
+
+export function LegalPage({
+  locale,
+  kind,
+}: {
+  locale: Locale;
+  kind: "terms" | "privacy";
+}) {
+  const title =
+    kind === "terms"
+      ? locale === "es"
+        ? "Condiciones generales"
+        : "Terms"
+      : locale === "es"
+        ? "Privacidad"
+        : "Privacy";
+  const intro = kind === "terms" ? termsIntro[locale] : null;
+  const blocks = kind === "terms" ? termsBlocks : privacyBlocks;
+  return (
+    <main id="main-content" tabIndex={-1}>
+      <PageHero locale={locale} variant="compact" title={title} subtitle={intro ?? undefined} />
+      <article className="section-y mx-auto max-w-3xl px-4 space-y-10">
+        {blocks.map((b) => (
+          <section key={b.heading.es}>
+            <h2 className="font-heading text-xl font-bold text-(--color-deep-blue)">{b.heading[locale]}</h2>
+            <p className="mt-3 leading-relaxed">{b.body[locale]}</p>
+          </section>
+        ))}
+      </article>
     </main>
   );
 }
