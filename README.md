@@ -23,6 +23,7 @@ Nacional Coiba, Panamá, con salida desde Pixvae.
 | [`docs/04-implementation-plan.md`](docs/04-implementation-plan.md) | Plan por fases con entregables y criterios de aceptación |
 | [`docs/05-open-questions.md`](docs/05-open-questions.md) | Preguntas que bloquean o condicionan la implementación |
 | [`docs/06-decision-log.md`](docs/06-decision-log.md) | Decisiones tomadas y por qué |
+| [`docs/07-design-system.md`](docs/07-design-system.md) | Contraste WCAG de la paleta y escala tipográfica |
 | [`docs/source/`](docs/source/) | Material original: PDF de especificaciones + captura íntegra del sitio Wix |
 
 ## Regla de oro

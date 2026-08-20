@@ -53,3 +53,33 @@ aprobación por PR. La seguridad la dan los gates de CI, no la revisión humana.
 **Decidió:** lo fija el PDF §10.
 **Razón:** el objetivo del sitio es capturar el lead; Jhon cobra manualmente
 por transferencia/Zelle/PayPal. Stripe/PayPal es fase 2.
+
+### D9 — Texto oscuro sobre los fondos turquesa y dorado
+**Decidió:** el equipo. **Pendiente de confirmación del fundador (Q7).**
+**Razón:** blanco sobre `#00B4CC` da 2.50:1 y sobre `#C9A96E` da 2.24:1, contra
+el mínimo WCAG AA de 4.5:1. Con texto `#1A1A2E` suben a 6.82:1 y 7.62:1.
+Corrige el CTA principal del sitio sin tocar ni uno de los cinco colores del PDF.
+**Hallazgo de:** Scuba Web Designer. Ratios recalculados y confirmados.
+**Ver:** `07-design-system.md`.
+
+### D10 — Escala tipográfica fluida entre los extremos del PDF
+**Decidió:** el equipo.
+**Razón:** el PDF fija 52px desktop / 32px mobile y no dice nada del intermedio,
+donde cae la tablet. Un `clamp()` entre esos dos valores da exactamente los
+números del PDF en ambos extremos y resuelve el hueco.
+
+### D11 — El número de WhatsApp vive en `content/site.ts`, no en una variable de entorno
+**Decidió:** el equipo, **corrigiendo** una propuesta de Scuba Web Designer.
+**Razón:** el objetivo correcto es que el número exista escrito una sola vez, y
+eso lo cumple `content/site.ts`. Pero una variable de entorno es para *secretos*,
+y este número es información pública de contacto: aparece en el HTML servido y
+en el enlace `wa.me` pase lo que pase. Meterlo en `.env` no lo protege de nada y
+sí añade una forma de que el build salga sin número de teléfono.
+
+### D12 — Ninguna cifra sin fuente en copy de cara al cliente
+**Decidió:** el equipo. **Q8 pendiente con el fundador.**
+**Razón:** el PDF se contradice a sí mismo — §5.4 anuncia "30m+ visibilidad
+promedio" mientras su propia FAQ #8 dice "hasta 30m" y solo de diciembre a mayo.
+Las dos frases van publicadas en el mismo sitio. Regla general: toda cifra en
+copy de cara al cliente necesita fuente o se reemplaza por un dato verificable.
+Aplica también a los números PADI y a los testimonios (D4).

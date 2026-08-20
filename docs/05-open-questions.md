@@ -97,6 +97,74 @@ en un comando. No bloquea nada.
 
 ---
 
+## Q7 — El botón turquesa: ¿texto oscuro, o turquesa más oscuro?
+
+**Bloquea:** Fase 0 — define el CTA de todas las páginas. Barato ahora, caro
+después de 10 páginas construidas.
+
+El PDF §5.1 pide el botón CTA con **fondo turquesa `#00B4CC` y texto blanco**.
+Esa combinación da **2.50:1** de contraste cuando el estándar de accesibilidad
+(WCAG AA) exige 4.5:1. Es casi la mitad. El turquesa es un tono brillante: se
+comporta como color claro y necesita texto oscuro encima.
+
+Afecta al botón "RESERVAR MI LUGAR" — el texto más leído y el único que
+genera ingresos.
+
+- **A —** El botón turquesa lleva **texto oscuro** (`#1A1A2E`) → 6.82:1.
+  Tu paleta no cambia en nada, solo el color del texto encima. *(Recomendada.)*
+- **B —** Se mantiene el texto blanco pero el turquesa se oscurece a
+  `#007A8A` → 5.06:1. Esto **sí** cambia tu paleta y se nota en todo el sitio.
+
+**Nuestra decisión por defecto, si no hay respuesta:** opción **A**.
+
+Detalle completo en `07-design-system.md`.
+
+---
+
+## Q8 — "30m+ de visibilidad promedio": ¿de dónde sale ese número?
+
+**Bloquea:** Fase 3 (sección "Por qué Coiba").
+
+Tu propio PDF se contradice en este dato:
+
+- §5.4, estadística grande en turquesa: **"30m+ / visibilidad / promedio"**
+- §8.6, FAQ #8: *"Diciembre a mayo: mejor visibilidad **(hasta 30m)**"*
+
+"Hasta 30m en la mejor temporada" y "30m+ de promedio" no son la misma
+afirmación. Y ambas van a estar publicadas en el mismo sitio, donde cualquier
+visitante puede compararlas.
+
+Un buzo que llegue en temporada de aguas verdes y encuentre 10m de visibilidad
+va a saber que el número era falso. "760+ especies" y el Patrimonio UNESCO son
+citables; este no.
+
+→ ¿Tienes una fuente para el promedio? Si no, la tercera estadística puede ser
+**"jun–nov / temporada de / tiburón ballena"**, que es verdad, es tuya, y vende
+igual o mejor.
+
+**Nuestra decisión por defecto, si no hay respuesta:** usamos el número de tu
+propia FAQ — *"hasta 30m, dic–may"* — en lugar del promedio.
+
+---
+
+## Q9 — La barra de cupos, ¿reflejará reservas reales?
+
+Depende de Q3, pero merece decirse aparte porque el riesgo es distinto.
+
+Mostrar "8 de 12 cupos disponibles" con barra de progreso está bien **si el
+número es real y lo mantienes al día**. Si se queda congelado en 8 durante
+meses, se convierte en escasez fabricada: es falso, y además es de los patrones
+que queman la confianza cuando el cliente lo nota.
+
+No hace falta que sea automático — tu PDF dice que tú lo editas manualmente y
+eso es perfectamente válido. Lo que hace falta es que lo actualices cuando
+entren reservas.
+
+→ Si prefieres no mantenerlo, construimos las cards **sin la barra** y dejamos
+solo "Grupos máx. 12 personas", que es igual de cierto y no envejece.
+
+---
+
 ## Cosas que ya sabemos que faltan (no son preguntas, son insumos)
 
 El PDF §10 ya las declara. Las anotamos para que no se pierdan:
