@@ -230,3 +230,35 @@ blancas) quedan adyacentes y la alternancia se rompe sola. Por eso el fondo se
 deriva de la **secuencia renderizada**, no del número de sección.
 **No contradice D18:** el PDF especifica fondos asumiendo que todas las
 secciones existen; sobre la ausencia calla, y el silencio es nuestro.
+
+### D31 — El modal de reserva usa `<dialog>` nativo, no uno hecho a mano
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** §7 pone el formulario en un modal que se abre desde "Reservar mi
+lugar" — la ruta de conversión principal. `<dialog>` con `showModal()` trae
+trampa de foco, `Escape`, fondo inerte y capa superior correctos de fábrica;
+un modal a mano casi siempre falla la trampa de foco de forma sutil. Además,
+al renderizar en la capa superior, el FAB de WhatsApp **no puede** quedar
+encima del formulario — la colisión de docs/10 §6.2 se vuelve imposible en
+vez de evitada.
+
+### D32 — El mensaje de confirmación del formulario es una región viva
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** sin `role="status"` (éxito) o `role="alert"` (error) y el foco
+movido a él, un usuario de lector de pantalla envía el formulario de reserva
+y no escucha ninguna confirmación — no sabe si acaba de reservar un viaje.
+
+### D33 — `hidden="until-found"` en los paneles de la FAQ
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer. **Verificado
+contra MDN.**
+**Razón:** el contenido colapsado de un acordeón es invisible para "buscar en
+la página" del navegador; con 15 preguntas, alguien busca "seguro" y no
+encuentra la pregunta 6 aunque la responda. En navegadores que no reconocen
+`until-found`, el atributo degrada al `hidden` normal — el contenido sigue
+oculto, sin riesgo de quedar visible por accidente. Mejora gratis.
+
+### D34 — Modal, lightbox y menú móvil comparten una regla de foco
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** los tres son *dialog*; el acordeón es *disclosure* y se excluye a
+propósito — no debe atrapar el teclado. Una regla de apertura/cierre de foco
+aplicada tres veces, no tres implementaciones que divergen.
+**Ver:** `13-interaction-patterns.md`.
