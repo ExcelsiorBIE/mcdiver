@@ -14,6 +14,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { CtaBand } from "@/components/CtaBand";
 import { ReserveButton } from "@/components/ReserveButton";
+import { BookingFlow } from "@/components/BookingFlow";
 import type { Locale } from "@/lib/i18n";
 
 const copy = {
@@ -91,6 +92,7 @@ export function TripsPage({ locale }: { locale: Locale }) {
         title={c.tripsTitle}
         image="/media/trip-complete.webp"
       />
+      <BookingFlow locale={locale} />
       <section className="section-y mx-auto max-w-6xl px-4">
         <p className="mx-auto max-w-3xl text-center text-(--color-soft-black)/85">{c.tripsIntro}</p>
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -217,6 +219,27 @@ export function PixvaePage({ locale }: { locale: Locale }) {
           <Image
             src="/media/pixvae.webp"
             alt={locale === "es" ? "Muelle de Pixvae, imagen ilustrativa." : "Pixvae dock, illustrative image."}
+            fill
+            className="object-cover"
+            sizes="80vw"
+          />
+        </div>
+        <h2 className="mt-16 font-heading text-(--color-deep-blue)" style={{ fontSize: "var(--fs-h2)" }}>
+          {locale === "es" ? "El traslado" : "The transfer"}
+        </h2>
+        <p className="mt-4 max-w-3xl">
+          {locale === "es"
+            ? "Ciudad de Panamá → Pixvae en buseta con aire acondicionado y baño. Foto ilustrativa de diseño; las fotos reales de Francisco llegan después."
+            : "Panama City → Pixvae in a coach with A/C and restroom. Design placeholder photo; Francisco's real photos come later."}
+        </p>
+        <div className="relative mx-auto mt-6 aspect-16/9 max-w-4xl overflow-hidden">
+          <Image
+            src="/media/transfer-coach.webp"
+            alt={
+              locale === "es"
+                ? "Buseta de larga distancia, imagen ilustrativa de diseño."
+                : "Long-distance coach, illustrative design image."
+            }
             fill
             className="object-cover"
             sizes="80vw"

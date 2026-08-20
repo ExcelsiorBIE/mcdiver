@@ -68,7 +68,7 @@ export const trips: Trip[] = [
     ],
     includes: {
       es: [
-        "Transporte Ciudad de Panamá ↔ Pixvae",
+        "Traslado terrestre Ciudad de Panamá ↔ Pixvae en buseta con aire acondicionado y baño",
         "3 noches alojamiento en Pixvae + 1 noche en Ciudad de Panamá",
         "8 inmersiones en el PNN Coiba",
         "Entrada al Parque Nacional Coiba",
@@ -77,7 +77,7 @@ export const trips: Trip[] = [
         "Todas las comidas durante los días de buceo",
       ],
       en: [
-        "Transport Panama City ↔ Pixvae",
+        "Ground transfer Panama City ↔ Pixvae in an A/C coach with restroom",
         "3 nights lodging in Pixvae + 1 night in Panama City",
         "8 dives in PNN Coiba",
         "Coiba National Park entrance fee",
@@ -93,6 +93,7 @@ export const trips: Trip[] = [
         "Buceo nocturno",
         "Traje de neopreno (alquiler disponible)",
         "Gastos personales extras",
+        "Seguro de viaje con anulación (recomendado; lo contratas tú tras el anticipo)",
       ],
       en: [
         "Airfare",
@@ -100,6 +101,7 @@ export const trips: Trip[] = [
         "Night diving",
         "Wetsuit (rental available)",
         "Extra personal expenses",
+        "Travel insurance with cancellation (recommended; you buy it after the deposit)",
       ],
     },
   },
@@ -147,7 +149,7 @@ export const trips: Trip[] = [
     ],
     includes: {
       es: [
-        "Transporte Ciudad de Panamá ↔ Pixvae/Bahía Honda",
+        "Traslado terrestre Ciudad de Panamá ↔ Pixvae/Bahía Honda en buseta con aire acondicionado y baño",
         "6 noches de alojamiento",
         "14 inmersiones en el PNN Coiba",
         "Entrada al Parque Nacional Coiba",
@@ -158,7 +160,7 @@ export const trips: Trip[] = [
         "Alquiler completo de equipos",
       ],
       en: [
-        "Transport Panama City ↔ Pixvae/Bahía Honda",
+        "Ground transfer Panama City ↔ Pixvae/Bahía Honda in an A/C coach with restroom",
         "6 nights lodging",
         "14 dives in PNN Coiba",
         "Coiba National Park entrance fee",
@@ -170,8 +172,20 @@ export const trips: Trip[] = [
       ],
     },
     excludes: {
-      es: ["Tiquete aéreo", "Bebidas alcohólicas", "Buceo nocturno ($60 USD extra)", "Gastos personales"],
-      en: ["Airfare", "Alcoholic beverages", "Night diving ($60 USD extra)", "Personal expenses"],
+      es: [
+        "Tiquete aéreo",
+        "Bebidas alcohólicas",
+        "Buceo nocturno ($60 USD extra)",
+        "Gastos personales",
+        "Seguro de viaje con anulación (recomendado; lo contratas tú tras el anticipo — distinto del seguro de buceo incluido)",
+      ],
+      en: [
+        "Airfare",
+        "Alcoholic beverages",
+        "Night diving ($60 USD extra)",
+        "Personal expenses",
+        "Travel insurance with cancellation (recommended; you buy it after the deposit — separate from included dive insurance)",
+      ],
     },
   },
 ];

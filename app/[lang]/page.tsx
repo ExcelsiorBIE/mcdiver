@@ -16,6 +16,7 @@ import { TeamGrid } from "@/components/TeamGrid";
 import { GalleryPreview } from "@/components/GalleryPreview";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FinalCta } from "@/components/FinalCta";
+import { BookingFlow } from "@/components/BookingFlow";
 
 export async function generateMetadata({
   params,
@@ -66,6 +67,7 @@ export default async function HomePage({
         </div>
       </section>
 
+      <BookingFlow locale={locale} />
       <WhyCoiba locale={locale} />
       <PixvaeAdvantage locale={locale} />
       <TeamGrid locale={locale} />

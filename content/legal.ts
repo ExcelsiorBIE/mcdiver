@@ -64,8 +64,15 @@ export const termsBlocks: LegalBlock[] = [
   {
     heading: { es: "8. Confirmación", en: "8. Confirmation" },
     body: {
-      es: "El cupo queda en firme cuando llega el anticipo y te lo confirmamos por WhatsApp. Hasta entonces la fecha puede llenarse. Si un servicio en destino no se puede confirmar, te proponemos una alternativa o devolvemos lo pagado de ese servicio.",
-      en: "The spot is firm when the deposit arrives and we confirm on WhatsApp. Until then the date can fill. If a service in destination can't be confirmed, we offer an alternative or refund what you paid for that service.",
+      es: "El cupo queda en firme cuando llega el anticipo y te lo confirmamos por WhatsApp. Hasta entonces la fecha puede llenarse. Si un servicio en destino no se puede confirmar, te proponemos una alternativa o devolvemos lo pagado de ese servicio. Desde 6 personas abiertas en esa salida, armamos un grupo de WhatsApp para ir coordinando. El viaje se confirma al llegar a 10; si no, 100% del anticipo de vuelta.",
+      en: "The spot is firm when the deposit arrives and we confirm on WhatsApp. Until then the date can fill. If a service in destination can't be confirmed, we offer an alternative or refund what you paid for that service. From 6 people booked on that departure we open a WhatsApp group to coordinate. The trip confirms at 10; if not, 100% of the deposit back.",
+    },
+  },
+  {
+    heading: { es: "9. Seguros (dos cosas distintas)", en: "9. Insurance (two different things)" },
+    body: {
+      es: "El Plan Completo incluye seguro de buceo (accidente en el agua). Eso no cubre si tú cancelas el viaje por un imprevisto. Tras el anticipo te recomendamos contratar por tu cuenta un seguro de viaje con anulación. Aún no tenemos marca partner; cuando Jhon cierre convenio lo publicamos. Si cancelamos nosotros porque no se llena el mínimo de 10, te devolvemos el 100% del anticipo — no hace falta póliza para ese caso.",
+      en: "The Complete plan includes dive insurance (incident in the water). That does not cover you cancelling the trip for an unexpected reason. After the deposit we recommend you buy travel insurance with cancellation cover. We don't have a partner brand yet; when Jhon signs one we'll publish it. If we cancel because the group doesn't reach 10, you get 100% of the deposit back — you don't need a policy for that case.",
     },
   },
 ];
