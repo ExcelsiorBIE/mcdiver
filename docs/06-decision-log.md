@@ -203,3 +203,30 @@ bloqueo inicial a un paso de cinco minutos al final.
 ### D27 — Los testimonios de Wix eran falsos: confirmado (Q1)
 **Decidió:** Jhon. *"No son testimonios reales."* Confirma D4. Módulo vacío
 hasta que entregue reseñas reales.
+
+### D28 — El `src` del video no existe en el HTML inicial
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** `autoplay` **anula** `preload="none"` — un `<video autoplay muted
+loop preload="none">` se descarga igual. La combinación se lee correcta y no
+hace nada. El poster `<img>` es el LCP; el `<source>` se adjunta después del
+`load`, y no se adjunta en absoluto bajo reduced-motion, ahorro de datos, red
+lenta o viewport < 768px.
+**Ver:** `12-loading-empty-error.md` §1.
+
+### D29 — `100svh` en el hero, no `100vh`
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** en móvil, `100vh` es el viewport **sin** la barra del navegador, así
+que el hero de §5.1 renderiza más alto de lo visible y el indicador de scroll
+cae bajo el pliegue en la primera pantalla del sitio. Se conserva su número;
+se corrige la unidad.
+
+### D30 — Una sección sin contenido no se renderiza, y los fondos se derivan
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** un título de testimonios sobre un contenedor vacío anuncia la
+ausencia justo donde el comprador busca prueba social, y "próximamente" es una
+promesa que D24 prohíbe. Cero testimonios → la sección no existe en el DOM.
+**Corolario:** al desaparecer §5.8 (`#F8F9FA`), la galería y la FAQ (ambas
+blancas) quedan adyacentes y la alternancia se rompe sola. Por eso el fondo se
+deriva de la **secuencia renderizada**, no del número de sección.
+**No contradice D18:** el PDF especifica fondos asumiendo que todas las
+secciones existen; sobre la ausencia calla, y el silencio es nuestro.

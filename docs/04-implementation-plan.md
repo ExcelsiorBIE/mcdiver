@@ -69,7 +69,11 @@ correcto en mobile, tablet y desktop.
 `/galeria` (filtros + lightbox), `/faq` (las 15), `/contacto`. Cada una con su
 gemela en inglés.
 
-**Aceptación:** las 9 rutas × 2 idiomas responden 200, con hreflang correcto.
+Más las páginas de error: `not-found.tsx` y `error.tsx`, bilingües, con marca y
+navegación (D30, `12-loading-empty-error.md` §3).
+
+**Aceptación:** las 9 rutas × 2 idiomas responden 200, con hreflang correcto,
+y un path inexistente devuelve el 404 con marca **en el idioma correcto**.
 
 ---
 
