@@ -10,6 +10,7 @@ import { site } from "../content/site";
 import { faqs, faqPreview } from "../content/faq";
 import { trips } from "../content/trips";
 import { team } from "../content/team";
+import { diveSites } from "../content/dive-sites";
 
 let failures = 0;
 function fail(msg: string) {
@@ -63,6 +64,26 @@ for (const m of team) {
   const sebastian = team.find((m) => m.id === "sebastian");
   if (sebastian?.yearsExperience !== null) {
     fail('team.ts: "sebastian".yearsExperience debe ser null hasta tener el dato real — CI-3, docs/08-content-integrity.md');
+  }
+  // padiCert pendiente para AMBOS instructores (docs/00-brief.md §8) — no solo
+  // el campo probado a mano. Un número de certificación inventado es al
+  // menos tan peligroso como un año inventado: se lee como verificable y no
+  // lo es. Hallazgo de Scuba Web Designer.
+  for (const id of ["pacho", "sebastian"] as const) {
+    const m = team.find((t) => t.id === id);
+    if (m?.padiCert !== null) {
+      fail(`team.ts: "${id}".padiCert debe ser null hasta tener el número real — CI-3, docs/08-content-integrity.md`);
+    }
+  }
+}
+
+// --- dive-sites.ts ---
+if (diveSites.length !== 4) fail(`dive-sites.ts: hay ${diveSites.length} sitios, el PDF §8.2 nombra 4`);
+for (const s of diveSites) {
+  if (!s.description.es || !s.description.en) fail(`dive-sites.ts: "${s.id}" con descripción vacía`);
+  if (s.depthM !== null) fail(`dive-sites.ts: "${s.id}".depthM debe ser null — el PDF no da profundidades, no inventar una`);
+  if (s.levelRequired !== null) {
+    fail(`dive-sites.ts: "${s.id}".levelRequired debe ser null — el PDF no da niveles por sitio, no inventar uno`);
   }
 }
 
