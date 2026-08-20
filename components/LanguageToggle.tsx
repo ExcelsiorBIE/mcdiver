@@ -19,7 +19,7 @@ export function LanguageToggle({
       <Link
         href={alternatePath(pageId, "es")}
         aria-current={locale === "es" ? "page" : undefined}
-        className="min-h-11 min-w-11 flex items-center justify-center"
+        className="min-h-11 min-w-11 flex items-center justify-center aria-[current=page]:underline aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-4"
       >
         ES
       </Link>
@@ -27,7 +27,7 @@ export function LanguageToggle({
       <Link
         href={alternatePath(pageId, "en")}
         aria-current={locale === "en" ? "page" : undefined}
-        className="min-h-11 min-w-11 flex items-center justify-center"
+        className="min-h-11 min-w-11 flex items-center justify-center aria-[current=page]:underline aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-4"
       >
         EN
       </Link>

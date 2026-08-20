@@ -262,3 +262,48 @@ oculto, sin riesgo de quedar visible por accidente. Mejora gratis.
 propósito — no debe atrapar el teclado. Una regla de apertura/cierre de foco
 aplicada tres veces, no tres implementaciones que divergen.
 **Ver:** `13-interaction-patterns.md`.
+
+### D35 — El header nunca se oculta al hacer scroll
+**Decidió:** el equipo, leyendo el PDF literalmente. **Hallazgo de:** Scuba
+Web Designer.
+**Razón:** §4 dice *"siempre visible al hacer scroll"* — no es silencio sobre
+"ocultar al bajar", es una prohibición explícita del patrón más común en
+headers actuales. Se documenta como regla dura para que no se añada como
+default "de buen gusto" en seis semanas.
+
+### D36 — El disparador del header se lee de la posición del hero, no de un píxel fijo
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer.
+**Razón:** *"transparente sobre el hero"* implica una comprobación de
+posición; un scroll-Y fijo queda mal en cada altura de hero (100vh/60vh/40vh)
+y en cualquier hero futuro. `IntersectionObserver` contra el propio
+`boundingClientRect` del hero — una implementación, correcta en todas las
+alturas.
+
+### D37 — El header interior arranca sólido, no transparente, donde no hay overlay garantizado
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer (con corrección
+de cita — el 70% de overlay citado para `/isla-coiba` §8.2 pertenece en
+realidad a §5.4, una sección del homepage; el hero real de §8.2 no tiene
+overlay especificado, sumando tres páginas interiores sin overlay:
+isla-coiba, por-que-pixvae, nuestro-equipo).
+**Razón:** el header ya pasa a sólido `#1B3A6B` al hacer scroll (§4); en las
+páginas cuyo hero no tiene overlay garantizado, arranca sólido desde
+`scroll=0` en vez de apostar la legibilidad del logo/menú a una foto de stock
+que todavía no se ha elegido (§10). No añade tokens nuevos.
+**No es pregunta al fundador (D18):** no es un cambio estético a algo que el
+PDF fija explícitamente — es negarnos a depender de una foto sin elegir para
+un requisito de legibilidad. Misma clase que D9, no la alternancia de fondos.
+
+### D38 — El toggle de idioma es dos `<a>` con `aria-current`, más señal visual
+**Decidió:** el equipo. **Hallazgo de:** Scuba Web Designer (semántica ya
+implementada correctamente en `components/LanguageToggle.tsx`; se añadió el
+subrayado que faltaba para usuarios videntes).
+**Razón:** D6 hace del toggle navegación real a una URL traducida, no un
+cambio de estado del lado del cliente — un `role="switch"` implicaría un
+comportamiento que no ocurre. Dos enlaces simples dan Tab/Enter correctos
+gratis. `aria-current="page"` marca el idioma activo estructuralmente; el
+subrayado se lo confirma a quien ve la pantalla — color/peso nunca informa
+solo (misma regla que D21, aplicada a navegación).
+**Pendiente para Fase 3/4:** posición del toggle dentro del menú móvil — cerca
+de arriba del panel, porque el idioma es precondición para leer el resto del
+menú. La línea móvil de §4 no lo menciona; se documenta para que no quede a
+criterio de quien construya el hamburguesa.

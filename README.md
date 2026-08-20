@@ -30,6 +30,7 @@ Nacional Coiba, Panamá, con salida desde Pixvae.
 | [`docs/11-media-motion-seo.md`](docs/11-media-motion-seo.md) | Video del hero vs PageSpeed, movimiento, páginas de error, meta titles |
 | [`docs/12-loading-empty-error.md`](docs/12-loading-empty-error.md) | Carga del video, secciones vacías y páginas 404/500 |
 | [`docs/13-interaction-patterns.md`](docs/13-interaction-patterns.md) | Foco y teclado en el modal de reserva, acordeón, lightbox y menú móvil |
+| [`docs/14-header-nav.md`](docs/14-header-nav.md) | Header sticky, riesgo de overlay en 3 heroes interiores, toggle de idioma |
 | [`docs/source/`](docs/source/) | Material original: PDF de especificaciones + captura íntegra del sitio Wix |
 
 ## Regla de oro
