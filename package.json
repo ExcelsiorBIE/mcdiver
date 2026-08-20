@@ -1,0 +1,33 @@
+{
+  "name": "mcdiver",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "npm run verify:ssot",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "verify:ssot": "tsx scripts/verify-content.ts",
+    "verify:i18n": "tsx scripts/verify-i18n.ts",
+    "verify:a11y": "tsx scripts/verify-a11y.ts",
+    "verify:all": "npm run verify:ssot && npm run verify:i18n && npm run verify:a11y && npm run lint && npm run typecheck",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.3.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.1",
+    "tailwindcss": "^4",
+    "tsx": "^4",
+    "typescript": "^5"
+  }
+}

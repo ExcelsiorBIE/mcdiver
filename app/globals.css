@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TOKENS — docs/00-brief.md §5, docs/07-design-system.md,
+   docs/10-component-states.md. Un valor, un lugar.
+   ============================================================ */
+:root {
+  color-scheme: light; /* docs/11 §4 — D-series: nunca invertir el formulario */
+
+  /* Paleta (PDF §2) */
+  --color-deep-blue: #1b3a6b;
+  --color-turquoise: #00b4cc;
+  --color-white: #ffffff;
+  --color-sand-gold: #c9a96e;
+  --color-soft-black: #1a1a2e;
+  --color-footer: #0d1f3c;
+  --color-light-gray: #f8f9fa;
+
+  /* Texto sobre turquesa/dorado: OSCURO, no blanco (D9/D25 — WCAG AA) */
+  --color-on-turquoise: var(--color-soft-black); /* 6.82:1 */
+  --color-on-gold: var(--color-soft-black); /* 7.62:1 */
+  --color-on-deep-blue: var(--color-white); /* 11.27:1 */
+  --color-on-footer: var(--color-white); /* 16.43:1 */
+
+  /* Estados del botón turquesa (docs/10 §2) — se oscurece, nunca se aclara */
+  --color-turquoise-hover: #00a3b8; /* 5.63:1 */
+  --color-turquoise-active: #0093a6; /* 4.65:1 */
+
+  /* Colores semánticos (docs/10 §3) — el dorado NO sirve de aviso (D21) */
+  --color-error: #c0392b;
+  --color-success: #1e7a4f;
+  --color-warning: #8a6d1f;
+
+  /* Anillo de foco de dos tonos (docs/10 §1, D19) — outline: none prohibido */
+  --focus-ring: 0 0 0 2px var(--color-soft-black), 0 0 0 4px var(--color-white);
+
+  /* Tipografía */
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Escala tipográfica fluida (docs/07 §3) — honra los extremos del PDF */
+  --fs-display: clamp(2rem, 1.2rem + 2.8vw, 3.25rem); /* 32 → 52 */
+  --fs-lead: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem); /* 20 → 28 */
+  --fs-h2: clamp(1.75rem, 1.3rem + 1.9vw, 2.5rem); /* 28 → 40, un solo tamaño (D13) */
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem); /* 20 → 24 */
+  --fs-price: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem); /* 28 → 36 */
+  --fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* 16 → 18 */
+  --fs-small: 0.875rem; /* 14 */
+
+  /* Ritmo vertical (docs/07 §4, D14) — toda sección usa uno de estos dos */
+  --section-y: clamp(4rem, 2.5rem + 6vw, 8rem); /* 64 → 128 */
+  --section-y-tight: clamp(2.5rem, 2rem + 2vw, 4rem); /* 40 → 64 */
+  --stack-lg: 3rem;
+  --stack-md: 1.5rem;
+  --stack-sm: 0.75rem;
+  --measure: 62ch; /* los 600px del PDF, en ch — igual en ES y EN */
+
+  /* Área táctil mínima (docs/10 §2.2) — AAA/Apple HIG, adoptado como estándar propio */
+  --tap-min: 44px;
+}
+
+@theme inline {
+  --color-deep-blue: var(--color-deep-blue);
+  --color-turquoise: var(--color-turquoise);
+  --color-sand-gold: var(--color-sand-gold);
+  --color-soft-black: var(--color-soft-black);
+  --color-footer: var(--color-footer);
+  --color-light-gray: var(--color-light-gray);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-soft-black);
+  background: var(--color-white);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Anillo de foco de dos tonos — el único que pasa 3:1 contra los 4 fondos del
+   sitio (docs/10 §1). NUNCA usar outline: none. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* docs/10 §6.1 — el pulso del FAB y cualquier animación infinita se detienen */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-deep-blue);
+  color: var(--color-white);
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.section-y {
+  padding-block: var(--section-y);
+}
+
+.section-y-tight {
+  padding-block: var(--section-y-tight);
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+/* Botón primario — turquesa con texto oscuro (D9/D25), estados D20 */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-min);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  background: var(--color-turquoise);
+  color: var(--color-on-turquoise);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--color-turquoise-hover);
+}
+
+.btn-primary:active {
+  background: var(--color-turquoise-active);
+}
+
+/* disabled con token propio, nunca opacity (D20) */
+.btn-primary:disabled {
+  background: var(--color-light-gray);
+  color: #8c8c96;
+  cursor: not-allowed;
+}
