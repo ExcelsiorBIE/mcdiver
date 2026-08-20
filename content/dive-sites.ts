@@ -20,7 +20,7 @@ export type DiveSite = {
   description: { es: string; en: string };
   depthM: number | null;
   levelRequired: string | null;
-  photo: { isStock: boolean; alt: { es: string; en: string } };
+  photo: { src: string; isStock: boolean; alt: { es: string; en: string } };
 };
 
 export const diveSites: DiveSite[] = [
@@ -34,10 +34,11 @@ export const diveSites: DiveSite[] = [
     depthM: null, // pendiente: confirmar con Pacho
     levelRequired: null, // pendiente: confirmar con Pacho
     photo: {
+      src: "/media/cta-underwater.webp",
       isStock: true,
       alt: {
-        es: "Formación rocosa submarina en aguas abiertas del Pacífico",
-        en: "Underwater rock formation in open Pacific waters",
+        es: "Formación rocosa submarina en aguas abiertas del Pacífico, imagen ilustrativa.",
+        en: "Underwater rock formation in open Pacific waters, illustrative image.",
       },
     },
   },
@@ -51,10 +52,11 @@ export const diveSites: DiveSite[] = [
     depthM: null,
     levelRequired: null,
     photo: {
+      src: "/media/gallery-03.webp",
       isStock: true,
       alt: {
-        es: "Pináculo submarino con vida marina en el Pacífico panameño",
-        en: "Underwater pinnacle with marine life in the Panamanian Pacific",
+        es: "Pináculo submarino con vida marina en el Pacífico panameño, imagen ilustrativa.",
+        en: "Underwater pinnacle with marine life in the Panamanian Pacific, illustrative image.",
       },
     },
   },
@@ -68,10 +70,11 @@ export const diveSites: DiveSite[] = [
     depthM: null,
     levelRequired: null,
     photo: {
+      src: "/media/gallery-01.webp",
       isStock: true,
       alt: {
-        es: "Arrecife de coral con peces tropicales en el Pacífico",
-        en: "Coral reef with tropical fish in the Pacific",
+        es: "Arrecife de coral con peces tropicales en el Pacífico, imagen ilustrativa.",
+        en: "Coral reef with tropical fish in the Pacific, illustrative image.",
       },
     },
   },
@@ -85,10 +88,11 @@ export const diveSites: DiveSite[] = [
     depthM: null,
     levelRequired: null,
     photo: {
+      src: "/media/coiba.webp",
       isStock: true,
       alt: {
-        es: "Formación de roca submarina en el Parque Nacional Coiba",
-        en: "Underwater rock formation in Coiba National Park",
+        es: "Formación de roca submarina en el Parque Nacional Coiba, imagen ilustrativa.",
+        en: "Underwater rock formation in Coiba National Park, illustrative image.",
       },
     },
   },

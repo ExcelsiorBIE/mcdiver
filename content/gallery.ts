@@ -2,10 +2,13 @@
  * Galería preview §5.7 — 6 fotos. Mood/stock (D12): el alt describe la imagen,
  * no el avistamiento que nos gustaría vender.
  */
+export type GalleryCategory = "fauna" | "landscapes" | "action" | "pixvae";
+
 export type GalleryImage = {
   src: string;
   alt: { es: string; en: string };
   isStock: true;
+  category: GalleryCategory;
 };
 
 export const galleryPreview: GalleryImage[] = [
@@ -16,6 +19,7 @@ export const galleryPreview: GalleryImage[] = [
       en: "Sea turtle over a reef, illustrative image.",
     },
     isStock: true,
+    category: "fauna",
   },
   {
     src: "/media/gallery-02.webp",
@@ -24,6 +28,7 @@ export const galleryPreview: GalleryImage[] = [
       en: "Pacific sunset from a jungle ridge, illustrative image.",
     },
     isStock: true,
+    category: "landscapes",
   },
   {
     src: "/media/gallery-03.webp",
@@ -32,6 +37,7 @@ export const galleryPreview: GalleryImage[] = [
       en: "School of jacks in clear water with sun shafts, illustrative image.",
     },
     isStock: true,
+    category: "fauna",
   },
   {
     src: "/media/gallery-04.webp",
@@ -40,6 +46,7 @@ export const galleryPreview: GalleryImage[] = [
       en: "Skiff on turquoise water facing a jungle island, illustrative image.",
     },
     isStock: true,
+    category: "action",
   },
   {
     src: "/media/gallery-05.webp",
@@ -48,6 +55,7 @@ export const galleryPreview: GalleryImage[] = [
       en: "Remote island where jungle meets the Pacific, illustrative image.",
     },
     isStock: true,
+    category: "landscapes",
   },
   {
     src: "/media/gallery-06.webp",
@@ -56,5 +64,16 @@ export const galleryPreview: GalleryImage[] = [
       en: "Wooden dock in a Pacific coastal village, illustrative image.",
     },
     isStock: true,
+    category: "pixvae",
   },
+];
+
+export const galleryAll = galleryPreview;
+
+export const galleryFilters: { id: GalleryCategory | "all"; es: string; en: string }[] = [
+  { id: "all", es: "Todas", en: "All" },
+  { id: "fauna", es: "Fauna marina", en: "Marine life" },
+  { id: "landscapes", es: "Paisajes", en: "Landscapes" },
+  { id: "action", es: "Buceo en acción", en: "Diving" },
+  { id: "pixvae", es: "Pixvae", en: "Pixvae" },
 ];

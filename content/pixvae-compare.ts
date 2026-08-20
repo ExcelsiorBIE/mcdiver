@@ -6,6 +6,7 @@
  */
 export type CompareRow = {
   id: string;
+  label: { es: string; en: string };
   pixvae: { es: string; en: string };
   catalina: { es: string; en: string };
   homeHighlight?: boolean;
@@ -14,24 +15,28 @@ export type CompareRow = {
 export const pixvaeCompare: CompareRow[] = [
   {
     id: "time",
+    label: { es: "Tiempo al sitio de buceo", en: "Time to dive sites" },
     pixvae: { es: "20–30 min a los sitios", en: "20–30 min to the sites" },
     catalina: { es: "60–90 min a los sitios", en: "60–90 min to the sites" },
     homeHighlight: true,
   },
   {
     id: "dives",
+    label: { es: "Inmersiones posibles por día", en: "Possible dives per day" },
     pixvae: { es: "Más inmersiones (3–4 / día)", en: "More dives (3–4 / day)" },
     catalina: { es: "Menos tiempo en el agua (2–3 / día)", en: "Less time in the water (2–3 / day)" },
     homeHighlight: true,
   },
   {
     id: "fatigue",
+    label: { es: "Desgaste físico", en: "Physical fatigue" },
     pixvae: { es: "Mínimo desgaste", en: "Minimal fatigue" },
     catalina: { es: "Alto desgaste por trayecto", en: "High fatigue from the run" },
     homeHighlight: true,
   },
   {
     id: "access",
+    label: { es: "Acceso a sitios exclusivos", en: "Access to exclusive sites" },
     pixvae: { es: "Acceso exclusivo", en: "Exclusive access" },
     catalina: { es: "Acceso limitado", en: "Limited access" },
   },

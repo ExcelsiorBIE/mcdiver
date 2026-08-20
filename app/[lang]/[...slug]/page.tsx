@@ -3,6 +3,16 @@ import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { allPageIds, pageIdForSlug, slugFor, type PageId } from "@/content/routes";
 import { META } from "@/content/meta";
+import {
+  BlogPage,
+  CoibaPage,
+  ContactPage,
+  FaqPage,
+  GalleryPage,
+  PixvaePage,
+  TeamPage,
+  TripsPage,
+} from "@/components/interiors";
 
 export function generateStaticParams() {
   const params: { lang: string; slug: string[] }[] = [];
@@ -33,19 +43,9 @@ export async function generateMetadata({
   const pageId = pageIdForSlug(lang, slug);
   if (!pageId) return {};
   const m = META[pageId][lang];
-  return { title: m.title, description: m.description };
+  const extra = pageId === "blog" ? { robots: { index: false, follow: false } } : {};
+  return { title: m.title, description: m.description, ...extra };
 }
-
-const placeholder = {
-  es: (title: string) => ({
-    heading: title,
-    body: "Esta página está en construcción. El contenido llega en la siguiente fase de implementación.",
-  }),
-  en: (title: string) => ({
-    heading: title,
-    body: "This page is under construction. Content is coming in the next implementation phase.",
-  }),
-};
 
 export default async function CatchAllPage({
   params,
@@ -54,17 +54,24 @@ export default async function CatchAllPage({
 }) {
   const { lang, slug } = await params;
   const { locale, pageId } = resolve(lang, slug);
-  const title = META[pageId][locale].title.split(" | ")[0] ?? META[pageId][locale].title;
-  const p = placeholder[locale](title);
-
-  return (
-    <main id="main-content" tabIndex={-1} className="section-y mx-auto max-w-3xl px-4">
-      <h1 className="font-heading text-(--color-deep-blue)" style={{ fontSize: "var(--fs-h2)" }}>
-        {p.heading}
-      </h1>
-      <p className="mt-4 measure" style={{ fontSize: "var(--fs-body)" }}>
-        {p.body}
-      </p>
-    </main>
-  );
+  switch (pageId) {
+    case "trips":
+      return <TripsPage locale={locale} />;
+    case "coiba":
+      return <CoibaPage locale={locale} />;
+    case "pixvae":
+      return <PixvaePage locale={locale} />;
+    case "team":
+      return <TeamPage locale={locale} />;
+    case "gallery":
+      return <GalleryPage locale={locale} />;
+    case "faq":
+      return <FaqPage locale={locale} />;
+    case "contact":
+      return <ContactPage locale={locale} />;
+    case "blog":
+      return <BlogPage locale={locale} />;
+    default:
+      notFound();
+  }
 }
